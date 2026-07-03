@@ -1,87 +1,358 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pine Solutions | AI for K-12 Educators</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-slate-50 text-slate-800">
-    <header class="bg-white shadow-sm">
-      <nav
-        class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4"
-        aria-label="Main Navigation"
-      >
-        <a href="#home" class="text-xl font-semibold text-teal-700">Pine Solutions</a>
-        <ul class="flex items-center gap-4 text-sm font-medium text-slate-700 sm:gap-6">
-          <li><a href="#home" class="hover:text-teal-700">Home</a></li>
-          <li><a href="#services" class="hover:text-teal-700">Services</a></li>
-          <li><a href="#features" class="hover:text-teal-700">Features</a></li>
-          <li><a href="#contact" class="hover:text-teal-700">Contact</a></li>
-        </ul>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PINE Solutions | 국가교육과정 기반 AI 수업 설계 SaaS, PINE Model</title>
+  <meta name="description"
+    content="PINE Solutions는 학년·교과·단원 입력만으로 수업 PPT, 지도안, 활동지, 평가 루브릭을 5분 안에 자동 생성하는 AI 에이전트 기반 수업 설계 SaaS, PINE Model을 만듭니다.">
+  <meta property="og:title" content="PINE Solutions | AI 수업 설계 SaaS, PINE Model">
+  <meta property="og:description" content="교사의 수업 준비 시간을 5분으로. 국가교육과정 기반 AI 융합 수업 패키지 자동 생성 서비스.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/logo.png">
+  <meta name="theme-color" content="#3B1768">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#home" class="brand">
+        <img src="assets/img/logo.png" alt="PINE Solutions 로고" class="brand-logo">
+        <span class="brand-word">PINE <em>Solutions</em></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#problem"><span>01</span>문제의식</a>
+        <a href="#product"><span>02</span>PINE Model</a>
+        <a href="#diff"><span>03</span>차별성</a>
+        <a href="#team"><span>04</span>팀</a>
+        <a href="#contact"><span>05</span>문의</a>
       </nav>
-    </header>
 
-    <main>
-      <section id="home" class="bg-gradient-to-b from-teal-100 to-slate-50 px-6 py-20">
-        <div class="mx-auto max-w-4xl text-center">
-          <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-teal-700">Trusted EdTech Support</p>
-          <h1 class="mb-6 text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
-            Empowering K-12 Teachers to Confidently Integrate AI
-          </h1>
-          <p class="mx-auto mb-8 max-w-2xl text-base text-slate-700 sm:text-lg">
-            Pine Solutions helps schools adopt practical, safe, and classroom-ready AI strategies that support
-            teachers and improve student learning.
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">무료 체험 신청</a>
+        <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-circuit" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">AI 에이전트 기반 수업 설계 SaaS</p>
+          <h1><span class="title-main">차세대 공교육 혁신을 주도하는,</span><span class="accent-text title-sub">PINE Model</span></h1>
+          <p class="hero-lead">
+            <span class="lead-line1">학년·교과·단원·평가 수준만 선택하면 국가교육과정에 기반한</span>
+            <span class="lead-line2">수업 PPT, 교수·학습 지도안, 학생 활동지, 평가 루브릭을 <strong>5분 안에</strong> 자동으로 완성합니다.</span>
           </p>
-          <a
-            href="#contact"
-            class="inline-block rounded-md bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-teal-800"
-            >Get Started / Contact Us</a
-          >
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">무료 체험 신청하기</a>
+            <a href="#product" class="btn btn-ghost">PINE Model 살펴보기</a>
+          </div>
+          <dl class="hero-stats">
+            <div>
+              <dt>5분</dt>
+              <dd>수업 패키지 완성 시간</dd>
+            </div>
+            <div>
+              <dt>4종</dt>
+              <dd>통합 자동 생성 산출물</dd>
+            </div>
+            <div>
+              <dt>1개</dt>
+              <dd>국가교육과정 기반 플랫폼</dd>
+            </div>
+          </dl>
         </div>
-      </section>
-
-      <section id="services" class="px-6 py-16">
-        <div class="mx-auto max-w-4xl">
-          <h2 class="mb-4 text-2xl font-bold text-slate-900 sm:text-3xl">Our Mission</h2>
-          <p class="text-base leading-relaxed text-slate-700 sm:text-lg">
-            We partner with K-12 educators to make AI adoption seamless and meaningful. From first steps to full
-            classroom integration, our mission is to equip teachers with practical tools, confidence, and guidance so
-            they can focus on what matters most: student growth.
-          </p>
-        </div>
-      </section>
-
-      <section id="features" class="bg-white px-6 py-16">
-        <div class="mx-auto max-w-6xl">
-          <h2 class="mb-8 text-2xl font-bold text-slate-900 sm:text-3xl">Key Features</h2>
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <article class="rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 class="mb-2 text-lg font-semibold text-teal-700">AI Lesson Planning</h3>
-              <p class="text-sm text-slate-700">Save time with teacher-friendly AI workflows for creating engaging lessons.</p>
-            </article>
-            <article class="rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 class="mb-2 text-lg font-semibold text-teal-700">Teacher Training</h3>
-              <p class="text-sm text-slate-700">Hands-on professional development tailored for K-12 classroom needs.</p>
-            </article>
-            <article class="rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 class="mb-2 text-lg font-semibold text-teal-700">Curriculum Matching</h3>
-              <p class="text-sm text-slate-700">Align AI activities with grade-level standards and learning objectives.</p>
-            </article>
-            <article class="rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 class="mb-2 text-lg font-semibold text-teal-700">Safe AI Guidelines</h3>
-              <p class="text-sm text-slate-700">Support responsible use with clear policies for safety, ethics, and privacy.</p>
-            </article>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="hero-logo-card">
+            <img src="assets/img/logo.png" alt="" class="hero-logo-img">
           </div>
         </div>
-      </section>
-    </main>
-
-    <footer id="contact" class="bg-slate-900 px-6 py-8 text-slate-200">
-      <div class="mx-auto flex max-w-6xl flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2026 Pine Solutions. All rights reserved.</p>
-        <p>Contact: info@pinesolutions.example | +1 (000) 000-0000</p>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">WHY PINE SOLUTIONS</p>
+          <p class="brand-fullname">Pioneering Initiative for Next-generation Education Solutions</p>
+          <h2>AI 교육은 앞서가는데,<br class="only-mobile"> 교실의 하루는 그대로입니다</h2>
+          <p class="section-lead problem-lead">
+            <span class="prob-line1"><strong>PINE Solutions</strong>는 '차세대 교육을 위한 선도적인 제안'(Pioneering Initiative for Next-generation Education Solutions)이라는 기치 아래 설립되었습니다.</span>
+            <span class="prob-line2">정부는 'AI 3대 강국' 전략에 따라 인프라 투자를 공격적으로 늘리고 있지만,</span>
+            <span class="prob-line3">교실에서 AI 융합 수업을 실제로 설계하고 운영하는 일은 여전히 교사 개인의 몫으로 남아 있습니다.</span>
+            <span class="prob-line4">우리는 기술과 교실 사이의 이러한 공백을 메우기 위해 존재합니다.</span>
+          </p>
+        </div>
+
+        <div class="stat-grid reveal">
+          <div class="stat-card">
+            <p class="stat-num" data-count="47.5" data-suffix="시간">0시간</p>
+            <p class="stat-label">교사 주당 평균 업무시간</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-num" data-count="12" data-suffix="%">0%</p>
+            <p class="stat-label">그중 수업 준비에 쓰이는 시간 비중</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-num" data-count="3.4" data-suffix="시간">0시간</p>
+            <p class="stat-label">50분 수업 한 차시를 준비하는 시간</p>
+          </div>
+        </div>
+
+        <div class="callout-grid reveal">
+          <article class="callout-card">
+            <h3>정책과 교실 사이, 실행의 공백</h3>
+            <p>
+              <span class="callout-line1">1인 1스마트기기, AI 중점학교 같은 물리적 인프라는 빠르게 구축되고 있지만,</span>
+              <span class="callout-line2">교사가 AI 융합 수업을 설계할 시간과 지원 체계는 그 속도를 따라가지 못하고 있습니다.</span>
+            </p>
+          </article>
+          <article class="callout-card">
+            <h3>AI 활용 수업의 딜레마</h3>
+            <p>생성형 AI 확산으로 학습 과정 없이 결과물만 제출되는 사례가 늘면서,
+              교사는 평가의 공정성과 신뢰성을 스스로 책임져야 하는 부담을 동시에
+              안게 되었습니다.</p>
+          </article>
+        </div>
+
+        <blockquote class="insight-quote reveal">
+          <p>
+            <span class="quote-line1">현장 교사 인터뷰 결과, 교사들이 원한 것은 거창한 자동 평가 기술이 아니었습니다.</span>
+            <span class="quote-line2"><strong>① 직관적인 수업 설계 환경, ② 학교 업무망에서 바로 작동하는 연동성, ③ 명확한 AI 활용 가이드라인.</strong> PINE Model은 이 세 가지 요구에서 출발했습니다.</span>
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- PRODUCT -->
+    <section id="product" class="section section-alt">
+      <div class="container">
+        <div class="section-head product-head reveal">
+          <p class="eyebrow">HOW PINE MODEL WORKS</p>
+          <h2 class="product-title">PINE Model — Personalized Intelligent Navigator for Education</h2>
+          <p class="section-lead product-lead">교사의 입력값을 국가교육과정 데이터베이스와 수업 설계 구조화 모델에 연결해, 수업에 바로 쓸 수 있는 콘텐츠 4종을 동시에 만들어내는 생성 엔진입니다.</p>
+        </div>
+
+        <div class="flow reveal">
+          <div class="flow-step">
+            <span class="flow-num">01</span>
+            <h3>교사 입력</h3>
+            <ul>
+              <li>학년 선택</li>
+              <li>교과 선택</li>
+              <li>단원 선택</li>
+              <li>평가 수준 설정</li>
+            </ul>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step flow-step-engine">
+            <span class="flow-num">02</span>
+            <h3>PINE AI 엔진</h3>
+            <ul>
+              <li>국가 교육과정 DB</li>
+              <li>수업 설계 구조화 모델</li>
+              <li>수업 패키지 생성 규칙 엔진</li>
+            </ul>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <span class="flow-num">03</span>
+            <h3>자동 생성</h3>
+            <ul>
+              <li>수업 PPT</li>
+              <li>교수·학습 지도안</li>
+              <li>학생 활동지</li>
+              <li>평가 루브릭</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="output-grid reveal">
+          <article class="output-card">
+            <div class="output-icon" aria-hidden="true">🖥️</div>
+            <h3>수업 PPT</h3>
+            <p>수업 흐름과 핵심 내용을 담아 바로 활용할 수 있는 프레젠테이션</p>
+          </article>
+          <article class="output-card">
+            <div class="output-icon" aria-hidden="true">📋</div>
+            <h3>교수·학습 지도안</h3>
+            <p>차시별 목표, 활동, 평가 계획까지 정리된 수업 설계도</p>
+          </article>
+          <article class="output-card">
+            <div class="output-icon" aria-hidden="true">📝</div>
+            <h3>학생 활동지</h3>
+            <p>AI 융합 활동을 담은 참여형 학습지와 학생 산출물 유인물</p>
+          </article>
+          <article class="output-card">
+            <div class="output-icon" aria-hidden="true">✅</div>
+            <h3>평가 루브릭</h3>
+            <p>결과물이 아닌 학습 과정을 살피는 공정한 AI 활용 평가 기준</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENTIATION -->
+    <section id="diff" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">WHY PINE MODEL IS DIFFERENT</p>
+          <h2>따로 쓰던 도구들을,<br class="only-mobile"> 하나의 흐름으로</h2>
+          <p class="section-lead diff-lead">
+            <span class="diff-line1">기존 에듀테크 서비스는 학습 관리, 원격 연수, 콘텐츠 제공처럼 단일 기능에 머무르는 경우가 많습니다.</span>
+            <span class="diff-line2"><strong>PINE Model</strong>은 수업 설계의 전 과정을 하나의 플랫폼에서 통합합니다.</span>
+          </p>
+        </div>
+
+        <div class="diff-grid reveal">
+          <article class="diff-card">
+            <h3>All-in-One 자동 생성</h3>
+            <p>수업 PPT부터 평가 루브릭까지, 수업 설계 전 과정을 한 번에
+              만들어내는 유일한 통합 구조</p>
+          </article>
+          <article class="diff-card">
+            <h3>과정 중심 평가 루브릭</h3>
+            <p>결과물이 아닌 AI 활용 학습 과정을 살펴, 평가의 공정성과
+              신뢰도를 함께 확보</p>
+          </article>
+          <article class="diff-card">
+            <h3>No-Coding 직관적 환경</h3>
+            <p>별도의 기술 지식 없이 누구나 바로 사용할 수 있는 직관적인
+              수업 설계 화면</p>
+          </article>
+          <article class="diff-card">
+            <h3>국가교육과정 실시간 연동</h3>
+            <p>교육과정 개정 사항을 SaaS 구독 기반으로 즉시 반영해 항상
+              최신 상태를 유지</p>
+          </article>
+          <article class="diff-card">
+            <h3>포용적 교육 콘텐츠 확장</h3>
+            <p>UDL 설계 원칙에 기반한 특수·다문화 학생 지원 콘텐츠로
+              확장하는 중장기 로드맵</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ESG -->
+    <section id="esg" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">OUR COMMITMENT</p>
+          <h2>책임 있는 교육 기술을 만듭니다</h2>
+        </div>
+
+        <div class="esg-grid reveal">
+          <article class="esg-card">
+            <p class="esg-tag">사회 (Social)</p>
+            <h3>포용적 교육 기회 확대</h3>
+            <p>교사의 수업 준비 부담을 덜어 학생 중심 수업을 지원하고,
+              다문화·특수교육 학생을 위한 콘텐츠로 교육 격차를 줄입니다.</p>
+          </article>
+          <article class="esg-card">
+            <p class="esg-tag">환경 (Environmental)</p>
+            <h3>Paperless 수업 환경</h3>
+            <p>디지털 수업 자료와 학습 플랫폼을 통해 종이 기반 학습 자료
+              사용을 줄이는 친환경 교육 환경을 구현합니다.</p>
+          </article>
+          <article class="esg-card">
+            <p class="esg-tag">지배구조 (Governance)</p>
+            <h3>책임 있는 AI 운영</h3>
+            <p>교육 데이터를 다루는 서비스로서 AI 활용 윤리 기준을 세우고,
+              공정하고 투명한 서비스 운영 체계를 갖춥니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM (Core Philosophy) -->
+    <section id="team" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">OUR PHILOSOPHY</p>
+          <h2>교육 전문성과 AI 기술이 만나다</h2>
+          <p class="section-lead">수업을 가장 잘 아는 사람과, AI를 가장 잘 만드는 사람이 함께합니다.</p>
+        </div>
+
+        <div class="philosophy-grid reveal">
+          <div class="philosophy-card">
+            <div class="phi-icon" aria-hidden="true">🎓</div>
+            <h3>수업을 가장 잘 아는 사람</h3>
+            <p>14년 이상의 현장 교사교육 경력을 가진 교육학 박사 및 교과 교육 전문가들이 교육과정의 적합성과 수업 설계의 편의성을 직접 기획하고 검수합니다.</p>
+          </div>
+          <div class="philosophy-divider" aria-hidden="true">
+            <span class="phi-plus">+</span>
+          </div>
+          <div class="philosophy-card">
+            <div class="phi-icon" aria-hidden="true">💻</div>
+            <h3>AI를 가장 잘 만드는 사람</h3>
+            <p>인공지능 및 데이터 사이언스를 전공한 멀티 에이전트 시스템 설계 기술진이 자체 생성 엔진을 구축하고 원활한 SaaS 서비스를 개발합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-cta">
+      <div class="hero-glow contact-glow" aria-hidden="true"></div>
+      <div class="container contact-inner reveal">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2>PINE Model과 함께,<br>수업 준비의 다음을 시작하세요</h2>
+        <p class="section-lead">AI 선도교사를 대상으로 무료 체험을 운영하고 있습니다.
+          학교·교육청 협력 문의도 환영합니다.</p>
+        <div class="hero-cta">
+          <a href="mailto:info@pine-solutions.com" class="btn btn-primary">이메일로 문의하기</a>
+        </div>
+        <p class="contact-meta">info@pine-solutions.com · 서울특별시</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="PINE Solutions 로고" class="footer-logo">
+        <div>
+          <p class="footer-name">PINE Solutions</p>
+          <p class="footer-tagline">Pioneering Initiative for Next-generation Education Solutions</p>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <a href="#problem">문제의식</a>
+        <a href="#product">PINE Model</a>
+        <a href="#diff">차별성</a>
+        <a href="#team">팀</a>
+        <a href="#contact">문의</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> PINE Solutions. All rights reserved.</p>
+      <p>info@pine-solutions.com · 서울특별시</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
 </html>
