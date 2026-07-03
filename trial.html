@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PINE Model for Educators | 나만의 맞춤형 AI 융합 수업 만들기</title>
+  <meta name="description" content="PINE Model 무료 체험 및 AI 수업 패키지 실시간 가상 생성 데모 페이지">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="trial-page">
+
+  <header class="site-header scrolled" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.png" alt="PINE Solutions 로고" class="brand-logo">
+        <span class="brand-word">PINE <em>Model for Educators</em></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" style="display: flex; gap: 8px; justify-content: flex-end; align-items: center; width: auto; flex: none;">
+        <a href="index.html#home">홈으로</a>
+        <a href="index.html#product">소개</a>
+        <a href="index.html#diff">차별성</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="trial-main">
+    <div class="container trial-wrapper">
+      <h1 class="trial-title">나만의 맞춤형 AI 융합 수업 만들기</h1>
+
+      <div class="trial-grid">
+        
+        <!-- LEFT: Stepby-Step Lesson Planner -->
+        <section class="planner-panel">
+          <h2 class="panel-title">단계별 AI 수업 플래너</h2>
+          
+          <div class="step-list">
+            <!-- Step 1: 과목 선택 -->
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <label for="subjectSelect" class="step-label">과목 선택:</label>
+                <div class="select-wrapper">
+                  <select id="subjectSelect">
+                    <option value="수학" selected>수학 (지원)</option>
+                    <option value="영어">영어 (지원)</option>
+                    <option value="과학" disabled>과학 (준비 중)</option>
+                    <option value="국어" disabled>국어 (준비 중)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: 학년 선택 -->
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <label for="gradeSelect" class="step-label">학년 선택:</label>
+                <div class="select-wrapper">
+                  <select id="gradeSelect">
+                    <option value="고등학교 1학년" selected>고등학교 1학년 (고1) - 지원</option>
+                    <option value="초등학교 5학년" disabled>초등학교 5학년 (초5) - 준비 중</option>
+                    <option value="중학교 1학년" disabled>중학교 1학년 (중1) - 준비 중</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: 단원/주제 선택 -->
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <label for="topicInput" class="step-label">단원/주제 입력:</label>
+                <input type="text" id="topicInput" value="방정식과 함수" placeholder="예: 방정식과 함수, 태양계와 별">
+              </div>
+            </div>
+
+            <!-- Step 4: AI 융합 유형 선택 -->
+            <div class="step-item last-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <span class="step-label" style="color: var(--trial-pink);">AI 융합 유형 선택:</span>
+                <div class="ai-types-grid">
+                  <button type="button" class="ai-type-btn active" data-type="창의적 활동">
+                    <div class="ai-type-icon">🎨</div>
+                    <span>창의적 활동</span>
+                  </button>
+                  <button type="button" class="ai-type-btn" data-type="챗봇 튜터">
+                    <div class="ai-type-icon">🤖</div>
+                    <span>챗봇 튜터</span>
+                  </button>
+                  <button type="button" class="ai-type-btn" data-type="콘텐츠 생성">
+                    <div class="ai-type-icon">📝</div>
+                    <span>콘텐츠 생성</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="planner-actions">
+            <button type="button" id="generateBtn" class="btn btn-primary btn-generate">리소스 생성</button>
+          </div>
+        </section>
+
+        <!-- RIGHT: Generated Lesson Resources & Banner -->
+        <div class="right-column">
+          <section class="resources-panel locked" id="resourcesPanel">
+            
+            <!-- Default Locked Overlay -->
+            <div class="panel-overlay" id="panelOverlay">
+              <div class="overlay-content">
+                <div class="spinner-container">
+                  <div class="loader-spinner" id="loaderSpinner" style="display:none;"></div>
+                  <div class="robot-glow" id="robotGlow">🤖</div>
+                </div>
+                <p class="overlay-text" id="overlayText">왼쪽의 플래너에서 조건을 입력하고 <br><strong>'리소스 생성'</strong>을 클릭해 보세요.</p>
+                <div class="generation-logs" id="generationLogs" style="display:none;"></div>
+              </div>
+            </div>
+
+            <h2 class="panel-title">AI 생성 수업 자료</h2>
+            <p class="panel-subtitle">원하는 자료를 클릭하여 미리보거나 정식 다운로드하세요.</p>
+
+            <div class="resources-grid">
+              
+              <!-- Card 1: 수업 PPT -->
+              <div class="resource-card ppt-card">
+                <div class="card-header">
+                  <div class="card-icon">🖥️</div>
+                </div>
+                <div class="card-body">
+                  <h3>수업 PPT</h3>
+                  <p>수업 흐름과 핵심 내용이 포함된 수업 프레젠테이션</p>
+                  <div class="card-actions" style="display:flex; flex-direction:column; gap:6px; width:100%;">
+                    <button type="button" class="btn-card btn-ppt-view" onclick="openPreview('ppt')">📂 미리보기</button>
+                    <button type="button" class="btn-card btn-ppt" onclick="triggerSignup('수업 PPT')">📥 다운로드</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: 평가 가이드라인 -->
+              <div class="resource-card eval-card">
+                <div class="card-header">
+                  <div class="card-icon">📋</div>
+                </div>
+                <div class="card-body">
+                  <h3>평가 가이드라인</h3>
+                  <p>수업 과정과 결과를 평가하기 위한 루브릭 체크리스트</p>
+                  <button type="button" class="btn-card btn-eval" onclick="openPreview('eval')">📂 미리보기</button>
+                </div>
+              </div>
+
+              <!-- Card 3: 지도안 -->
+              <div class="resource-card guide-card">
+                <div class="card-header">
+                  <div class="card-icon">📄</div>
+                </div>
+                <div class="card-body">
+                  <h3>교수·학습 지도안</h3>
+                  <p>차시별 목표, 단계별 활동 계획이 담긴 수업 설계도</p>
+                  <button type="button" class="btn-card btn-guide" onclick="openPreview('guide')">📂 미리보기</button>
+                </div>
+              </div>
+
+              <!-- Card 4: 활동지 -->
+              <div class="resource-card sheet-card">
+                <div class="card-header">
+                  <div class="card-icon">✍️</div>
+                </div>
+                <div class="card-body">
+                  <h3>학생 활동지</h3>
+                  <p>수업 활동 참여를 유도하는 학생 배포용 활동지 양식</p>
+                  <button type="button" class="btn-card btn-sheet" onclick="openPreview('sheet')">📂 미리보기</button>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Customize Your Class Banner -->
+          <section class="customize-banner">
+            <div class="banner-inner">
+              <div class="robot-graphic">
+                <div class="robot-circle">
+                  <!-- Robot SVG Icon for high quality rendering with pink accents -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40">
+                    <rect x="12" y="14" width="24" height="20" rx="4" fill="#FDF2F5" stroke="#DF4B81" stroke-width="3" />
+                    <rect x="8" y="20" width="4" height="8" rx="1.5" fill="#DF4B81" />
+                    <rect x="36" y="20" width="4" height="8" rx="1.5" fill="#DF4B81" />
+                    <path d="M24 6v8" stroke="#DF4B81" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="24" cy="5" r="2.5" fill="#E05A8D" />
+                    <rect x="18" y="19" width="4" height="4" rx="2" fill="#DF4B81" />
+                    <rect x="26" y="19" width="4" height="4" rx="2" fill="#DF4B81" />
+                    <path d="M19 28c2 2 6 2 8 0" stroke="#DF4B81" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                  </svg>
+                </div>
+              </div>
+              <div class="banner-content">
+                <h3>나만의 수업 맞춤설정</h3>
+                <p>AI를 이용해 수업의 난이도와 내용을 조정하세요.</p>
+              </div>
+              <div class="banner-cta">
+                <button type="button" class="btn btn-primary" onclick="openSignupModal()">1달 무료 체험 신청하기</button>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PREVIEW MODAL -->
+  <div class="modal-backdrop" id="previewModal">
+    <div class="modal-window preview-window">
+      <button type="button" class="modal-close" onclick="closePreview()">&times;</button>
+      <div class="modal-body-container" id="previewContent">
+        <!-- Dynamic preview content will be injected by trial.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP MODAL -->
+  <div class="modal-backdrop" id="signupModal">
+    <div class="modal-window signup-window">
+      <button type="button" class="modal-close" onclick="closeSignupModal()">&times;</button>
+      <div class="signup-header">
+        <img src="assets/img/logo.png" alt="PINE Model" class="signup-logo">
+        <h2>PINE Model 무료 체험 신청</h2>
+        <p>간단한 가입 정보 입력 후, 방금 생성하신 <strong id="selectedResourceLabel" class="accent-text" style="display:inline-block;">수업 리소스 패키지</strong> 전체 파일과 1개월 프리미엄 무료 플랜 계정을 받아보세요.</p>
+      </div>
+      <form id="signupForm" class="signup-form">
+        <div class="form-group">
+          <label for="userName">성함</label>
+          <input type="text" id="userName" required placeholder="예: 홍길동">
+        </div>
+        <div class="form-group">
+          <label for="schoolName">소속 학교</label>
+          <input type="text" id="schoolName" required placeholder="예: 서울미래고등학교">
+        </div>
+        <div class="form-group">
+          <label for="userEmail">이메일 주소</label>
+          <input type="email" id="userEmail" required placeholder="example@school.edu">
+          <small class="form-help">무료 계정 로그인 정보와 산출물 다운로드 파일이 이메일로 발송됩니다.</small>
+        </div>
+        <div class="form-group">
+          <label for="userPhone">연락처</label>
+          <input type="tel" id="userPhone" required placeholder="010-1234-5678">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="agreeCheck" required checked>
+          <label for="agreeCheck">개인정보 수집 및 베타 테스트 이메일 전송에 동의합니다. (필수)</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">무료 체험 신청 및 리소스 다운로드</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-backdrop" id="successModal">
+    <div class="modal-window success-window">
+      <div class="success-icon">🎉</div>
+      <h2>무료 체험 신청 완료!</h2>
+      <div class="success-details">
+        <p>신선한 교실 변화의 시작, PINE Model과 함께해 주셔서 감사합니다.</p>
+        <div class="receipt-card">
+          <p><strong>신청 교사:</strong> <span id="recName" style="color:var(--trial-pink); font-weight:700;"></span> 선생님</p>
+          <p><strong>소속 학교:</strong> <span id="recSchool"></span></p>
+          <p><strong>발급 계정 (ID):</strong> <span id="recEmail"></span></p>
+          <p><strong>체험 혜택:</strong> 1개월 프리미엄 무료 체험권 제공</p>
+          <p><strong>가상 설계 수업:</strong> <span id="recTopic" style="color:var(--trial-pink); font-weight:700;"></span> (<span id="recSubject"></span>, <span id="recGrade"></span>)</p>
+        </div>
+        <p class="success-guide">입력하신 이메일로 <strong>접속 비밀번호</strong>, <strong>기초 가이드라인 가이드북(PDF)</strong> 및 <strong>방금 생성한 수업 리소스 패키지(지도안, PPT, 활동지, 루브릭 압축 파일)</strong>를 전송해 드렸습니다. 10분 이내에 도착하지 않을 경우 스팸 메일함을 확인해 주세요.</p>
+      </div>
+      <div class="success-actions">
+        <a href="index.html" class="btn btn-primary">메인 페이지로 이동</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 PINE Solutions. All rights reserved.</p>
+      <p>info@pine-solutions.com · 서울특별시</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/trial.js"></script>
+</body>
+
+</html>
