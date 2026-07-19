@@ -555,11 +555,15 @@ br.only-mobile{ display: none; content: ""; }
   line-height: 1.7; 
 }
 .insight-quote strong{ color: var(--glow); }
-.quote-line1, .quote-line2 {
+.quote-line1, .quote-line2, .quote-line3 {
   display: block;
   white-space: nowrap;
 }
 .quote-line2 {
+  font-size: 1.41rem;
+  margin-top: 10px;
+}
+.quote-line3 {
   margin-top: 8px;
 }
 
@@ -945,7 +949,7 @@ br.only-mobile{ display: none; content: ""; }
   .lead-line1, .lead-line2 { white-space: normal; }
   .prob-line1, .prob-line2, .prob-line3, .prob-line4 { white-space: normal !important; }
   .callout-line1, .callout-line2 { white-space: normal !important; }
-  .quote-line1, .quote-line2 { white-space: normal !important; }
+  .quote-line1, .quote-line2, .quote-line3 { white-space: normal !important; }
   .diff-line1, .diff-line2 { white-space: normal !important; }
   .main-nav{ display: none; }
   .nav-toggle{ display: flex; }
