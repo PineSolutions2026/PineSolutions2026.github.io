@@ -129,15 +129,39 @@ br.only-mobile{ display: none; content: ""; }
   font-size: 1.15rem;
   letter-spacing: -0.01em;
   flex-shrink: 0;
+  position: relative;
 }
 .brand-logo{
-  width: 50px;
+  width: 32px;
   height: 38px;
   object-fit: contain;
   opacity: 1;
   transform: translateY(0);
   animation: logoClimbUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) backwards;
   transition: transform 0.4s var(--ease);
+}
+.brand::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 38px;
+  background: linear-gradient(to top, transparent 15%, var(--purple-300) 40%, #ffdf7a 50%, var(--purple-300) 60%, transparent 85%);
+  background-size: 100% 200%;
+  background-position: 0 150%;
+  -webkit-mask-image: url('../img/logo.png');
+  mask-image: url('../img/logo.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 2;
+  animation: logoWireFlow 4s infinite ease-in-out 1.2s;
+  transition: transform 0.4s var(--ease);
+  opacity: 0;
 }
 .brand-word{
   color: var(--purple-900);
@@ -156,6 +180,9 @@ br.only-mobile{ display: none; content: ""; }
 /* Brand Hover Micro-interactions */
 .brand:hover .brand-logo{
   transform: scale(1.08) rotate(3deg);
+}
+.brand:hover::before{
+  transform: translateY(-50%) scale(1.08) rotate(3deg);
 }
 .brand:hover .brand-word{
   color: var(--purple-600);
@@ -188,6 +215,27 @@ br.only-mobile{ display: none; content: ""; }
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes logoWireFlow {
+  0% {
+    background-position: 0 150%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    background-position: 0 -50%;
+    opacity: 1;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    background-position: 0 -50%;
+    opacity: 0;
   }
 }
 
@@ -850,7 +898,7 @@ br.only-mobile{ display: none; content: ""; }
 }
 .footer-brand{ display: flex; align-items: center; gap: 14px; }
 .footer-logo{
-  width: 53px;
+  width: 33px;
   height: 40px;
   object-fit: contain;
   filter: brightness(0) invert(1);
