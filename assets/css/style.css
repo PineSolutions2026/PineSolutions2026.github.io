@@ -396,8 +396,9 @@ br.only-mobile{ display: none; content: ""; }
 }
 .hero-stats dd{
   margin-top: 4px;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
+  font-size: 0.94rem;
+  color: #3d344d;
+  white-space: nowrap;
 }
 
 .hero-visual{ position: relative; display: flex; justify-content: center; }
