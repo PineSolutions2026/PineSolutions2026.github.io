@@ -132,9 +132,50 @@ br.only-mobile{ display: none; content: ""; }
   letter-spacing: -0.01em;
   flex-shrink: 0;
 }
-.brand-logo{ width: 38px; height: 38px; object-fit: contain; }
-.brand-word{ color: var(--purple-900); }
-.brand-word em{ font-style: normal; font-weight: 500; color: var(--ink-soft); }
+.brand-logo{
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(-15px);
+  animation: logoSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.4s var(--ease);
+}
+.brand-word{
+  color: var(--purple-900);
+  opacity: 0;
+  transform: translateY(-15px);
+  animation: logoSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+  transition: color 0.3s var(--ease);
+}
+.brand-word em{
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color 0.3s var(--ease);
+}
+
+/* Brand Hover Micro-interactions */
+.brand:hover .brand-logo{
+  transform: scale(1.1) rotate(5deg);
+}
+.brand:hover .brand-word{
+  color: var(--purple-600);
+}
+.brand:hover .brand-word em{
+  color: var(--purple-400);
+}
+
+@keyframes logoSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .main-nav{
   display: flex;

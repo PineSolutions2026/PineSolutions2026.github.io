@@ -35,6 +35,17 @@
     });
   });
 
+  // 1.5. Subject select change - update default topic input
+  if (subjectSelect && topicInput) {
+    subjectSelect.addEventListener("change", function () {
+      if (subjectSelect.value === "수학") {
+        topicInput.value = "방정식과 함수";
+      } else if (subjectSelect.value === "영어") {
+        topicInput.value = "영어 에세이 작성";
+      }
+    });
+  }
+
   // 2. Generate Click Simulation
   if (generateBtn) {
     generateBtn.addEventListener("click", function () {
