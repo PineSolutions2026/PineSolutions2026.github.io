@@ -383,11 +383,11 @@ br.only-mobile{ display: none; content: ""; }
 
 .hero-stats{
   display: flex;
-  gap: 36px;
+  gap: 28px;
   margin-top: 52px;
   padding-top: 28px;
   border-top: 1px solid var(--border);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .hero-stats dt{
   font-size: 1.7rem;
@@ -974,7 +974,7 @@ br.only-mobile{ display: none; content: ""; }
   .hero-inner{ grid-template-columns: 1fr; }
   .hero-visual{ order: -1; margin-bottom: 8px; }
   .hero-logo-card{ max-width: 260px; }
-  .hero-stats{ gap: 26px; }
+  .hero-stats{ flex-wrap: wrap; gap: 20px 26px; }
 
   .stat-grid{ grid-template-columns: 1fr; }
   .callout-grid{ grid-template-columns: 1fr; }
