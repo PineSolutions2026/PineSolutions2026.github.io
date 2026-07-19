@@ -7,13 +7,13 @@
 
   var topicOptions = {
     "수학": [
-      "공통수학 1",
-      "공통수학 2",
-      "대수",
-      "미적분 I",
-      "확률과 통계",
-      "미적분 II",
-      "기하"
+      { value: "공통수학 1", text: "공통수학 1 (준비 중)", disabled: true },
+      { value: "공통수학 2", text: "공통수학 2 (준비 중)", disabled: true },
+      { value: "대수", text: "대수 (준비 중)", disabled: true },
+      { value: "미적분 I", text: "미적분 I (준비 중)", disabled: true },
+      { value: "확률과 통계", text: "확률과 통계", selected: true },
+      { value: "미적분 II", text: "미적분 II (준비 중)", disabled: true },
+      { value: "기하", text: "기하 (준비 중)", disabled: true }
     ],
     "영어": [
       "공통영어 1",
@@ -89,10 +89,21 @@
       topicSelect.innerHTML = "";
       topicOptions[subject].forEach(function (opt, index) {
         var optionEl = document.createElement("option");
-        optionEl.value = opt;
-        optionEl.textContent = opt;
-        if (index === 0) {
-          optionEl.selected = true;
+        if (typeof opt === "string") {
+          optionEl.value = opt;
+          optionEl.textContent = opt;
+          if (index === 0) {
+            optionEl.selected = true;
+          }
+        } else {
+          optionEl.value = opt.value;
+          optionEl.textContent = opt.text;
+          if (opt.disabled) {
+            optionEl.disabled = true;
+          }
+          if (opt.selected) {
+            optionEl.selected = true;
+          }
         }
         topicSelect.appendChild(optionEl);
       });
