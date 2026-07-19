@@ -416,7 +416,69 @@ br.only-mobile{ display: none; content: ""; }
   justify-content: center;
   padding: 36px;
 }
-.hero-logo-img{ width: 100%; height: auto; }
+.hero-logo-card::after{
+  content: '';
+  position: absolute;
+  left: 36px;
+  right: 36px;
+  top: 36px;
+  bottom: 36px;
+  -webkit-mask-image: url('../img/logo.png');
+  mask-image: url('../img/logo.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to top, transparent 15%, var(--purple-400) 40%, #ffdf7a 50%, var(--purple-400) 60%, transparent 85%);
+  background-size: 100% 200%;
+  background-position: 0 150%;
+  opacity: 0;
+  animation: heroLogoFlow 5s infinite ease-in-out 1s;
+}
+.hero-logo-img{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(42, 17, 71, 0.08));
+  animation: heroLogoGlowPulse 5s infinite ease-in-out 1s;
+}
+
+@keyframes heroLogoFlow {
+  0% {
+    background-position: 0 150%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  45% {
+    background-position: 0 -50%;
+    opacity: 1;
+  }
+  58% {
+    opacity: 0;
+  }
+  100% {
+    background-position: 0 -50%;
+    opacity: 0;
+  }
+}
+
+@keyframes heroLogoGlowPulse {
+  0%, 10%, 65%, 100% {
+    filter: drop-shadow(0 4px 12px rgba(42, 17, 71, 0.08));
+    transform: scale(1);
+  }
+  30%, 50% {
+    filter: drop-shadow(0 0 20px rgba(155, 104, 232, 0.55));
+    transform: scale(1.02);
+  }
+}
 
 /* ==========================================================
    Section shared
