@@ -16,20 +16,20 @@
       { value: "기하", text: "기하 (준비 중)", disabled: true }
     ],
     "영어": [
-      "공통영어 1",
-      "공통영어 2",
-      "기본영어 1",
-      "기본영어 2",
-      "영어 I",
-      "영어 II",
-      "독해와 작문",
-      "영미문학읽기",
-      "영어 발표와 토론",
-      "직무 영어",
-      "심화 영어",
-      "실생활 영어 회화",
-      "미디어 영어",
-      "세계 문화와 영어"
+      { value: "공통영어 1", text: "공통영어 1 (준비 중)", disabled: true },
+      { value: "공통영어 2", text: "공통영어 2 (준비 중)", disabled: true },
+      { value: "기본영어 1", text: "기본영어 1 (준비 중)", disabled: true },
+      { value: "기본영어 2", text: "기본영어 2 (준비 중)", disabled: true },
+      { value: "영어 I", text: "영어 I (준비 중)", disabled: true },
+      { value: "영어 II", text: "영어 II (준비 중)", disabled: true },
+      { value: "독해와 작문", text: "독해와 작문", selected: true },
+      { value: "영미문학읽기", text: "영미문학읽기 (준비 중)", disabled: true },
+      { value: "영어 발표와 토론", text: "영어 발표와 토론 (준비 중)", disabled: true },
+      { value: "직무 영어", text: "직무 영어 (준비 중)", disabled: true },
+      { value: "심화 영어", text: "심화 영어 (준비 중)", disabled: true },
+      { value: "실생활 영어 회화", text: "실생활 영어 회화 (준비 중)", disabled: true },
+      { value: "미디어 영어", text: "미디어 영어 (준비 중)", disabled: true },
+      { value: "세계 문화와 영어", text: "세계 문화와 영어 (준비 중)", disabled: true }
     ]
   };
 
