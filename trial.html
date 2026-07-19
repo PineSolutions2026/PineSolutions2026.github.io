@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.0.9">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.1.0">
 </head>
 
 <body class="trial-page">
@@ -96,9 +96,25 @@
               </div>
             </div>
 
-            <!-- Step 4: AI 융합 유형 선택 -->
-            <div class="step-item last-step">
+            <!-- Step 4: 난이도 선택 -->
+            <div class="step-item">
               <div class="step-num">4</div>
+              <div class="step-content">
+                <label for="difficultySelect" class="step-label">난이도 선택:</label>
+                <div class="select-wrapper">
+                  <select id="difficultySelect">
+                    <option value="기초" selected>기초</option>
+                    <option value="초급">초급</option>
+                    <option value="중급">중급</option>
+                    <option value="고급">고급</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 5: AI 융합 유형 선택 -->
+            <div class="step-item last-step">
+              <div class="step-num">5</div>
               <div class="step-content">
                 <span class="step-label" style="color: var(--trial-pink);">AI 융합 유형 선택:</span>
                 <div class="ai-types-grid">
@@ -290,7 +306,7 @@
           <p><strong>소속 학교:</strong> <span id="recSchool"></span></p>
           <p><strong>발급 계정 (ID):</strong> <span id="recEmail"></span></p>
           <p><strong>체험 혜택:</strong> 1개월 프리미엄 무료 체험권 제공</p>
-          <p><strong>가상 설계 수업:</strong> <span id="recTopic" style="color:var(--trial-pink); font-weight:700;"></span> (<span id="recSubject"></span>, <span id="recGrade"></span>)</p>
+          <p><strong>가상 설계 수업:</strong> <span id="recTopic" style="color:var(--trial-pink); font-weight:700;"></span> (<span id="recSubject"></span>, <span id="recGrade"></span>, 난이도: <span id="recDifficulty"></span>)</p>
         </div>
         <p class="success-guide">입력하신 이메일로 <strong>접속 비밀번호</strong>, <strong>기초 가이드라인 가이드북(PDF)</strong> 및 <strong>방금 생성한 수업 리소스 패키지(지도안, PPT, 활동지, 루브릭 압축 파일)</strong>를 전송해 드렸습니다. 10분 이내에 도착하지 않을 경우 스팸 메일함을 확인해 주세요.</p>
       </div>
@@ -307,7 +323,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.0.9"></script>
+  <script src="assets/js/trial.js?v=1.1.0"></script>
 </body>
 
 </html>

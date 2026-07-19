@@ -45,6 +45,7 @@
 
   var subjectSelect = document.getElementById("subjectSelect");
   var gradeSelect = document.getElementById("gradeSelect");
+  var difficultySelect = document.getElementById("difficultySelect");
   var topicInput = document.getElementById("topicInput");
   var topicSelect = document.getElementById("topicSelect");
   var topicSelectWrapper = document.getElementById("topicSelectWrapper");
@@ -140,7 +141,7 @@
 
       var logs = [
         "🔍 1. 국가교육과정 성취기준 분석 중...",
-        "⚙️ 2. 학년(" + gradeSelect.value + ") 및 교과(" + subjectSelect.value + ") 핵심 역량 추출...",
+        "⚙️ 2. 학년(" + gradeSelect.value + "), 난이도(" + (difficultySelect ? difficultySelect.value : "기초") + ") 및 교과(" + subjectSelect.value + ") 핵심 역량 추출...",
         "🎨 3. AI 융합 유형(" + selectedAiType + ") 맞춤형 교수법 매핑...",
         "🖥️ 4. 수업 PPT 슬라이드 내용 구성 중...",
         "📝 5. 차시별 교수·학습 지도안 세부 아웃라인 작성 중...",
@@ -182,6 +183,7 @@
     var previewContent = document.getElementById("previewContent");
 
     var html = "";
+    var difficultyVal = difficultySelect ? difficultySelect.value : "기초";
 
     if (type === "ppt") {
       html = 
@@ -193,7 +195,7 @@
         "  <div class='ppt-slides-viewport'>" +
         "    <div class='ppt-slide active' id='slide1'>" +
         "      <div class='slide-inner slide-title-page'>" +
-        "        <p class='slide-meta'>" + grade + " " + subject + "</p>" +
+        "        <p class='slide-meta'>" + grade + " " + subject + " (" + difficultyVal + ")</p>" +
         "        <h2>" + topic + "</h2>" +
         "        <p class='slide-subtitle'>AI와 함께 설계하는 창의적 탐구 학습</p>" +
         "        <div class='slide-footer'>PINE Model AI 자동 생성</div>" +
@@ -243,7 +245,7 @@
         "    <span class='doc-icon'>📋</span>" +
         "    <div>" +
         "      <h3>[과정 중심 평가 루브릭] " + topic + "</h3>" +
-        "      <p>" + grade + " · " + subject + " · AI 융합 유형: " + selectedAiType + "</p>" +
+        "      <p>" + grade + " · " + subject + " · 난이도: " + difficultyVal + " · AI 융합 유형: " + selectedAiType + "</p>" +
         "    </div>" +
         "  </div>" +
         "  <div class='doc-body-scroll'>" +
@@ -293,7 +295,7 @@
         "    <span class='doc-icon'>📄</span>" +
         "    <div>" +
         "      <h3>[교수·학습 지도안] " + topic + " (1차시)</h3>" +
-        "      <p>" + grade + " · " + subject + " · 단원 학습 지도 설계 계획</p>" +
+        "      <p>" + grade + " · " + subject + " (" + difficultyVal + ") · 단원 학습 지도 설계 계획</p>" +
         "    </div>" +
         "  </div>" +
         "  <div class='doc-body-scroll'>" +
@@ -365,7 +367,7 @@
         "    <span class='doc-icon'>✍️</span>" +
         "    <div>" +
         "      <h3>[학생 탐구 활동지] " + topic + "</h3>" +
-        "      <p>" + grade + " · " + subject + " · " + selectedAiType + " 연계 활동지</p>" +
+        "      <p>" + grade + " · " + subject + " (" + difficultyVal + ") · " + selectedAiType + " 연계 활동지</p>" +
         "    </div>" +
         "  </div>" +
         "  <div class='doc-body-scroll'>" +
@@ -487,6 +489,10 @@
       document.getElementById("recTopic").textContent = topic;
       document.getElementById("recSubject").textContent = subject;
       document.getElementById("recGrade").textContent = grade;
+      var recDifficulty = document.getElementById("recDifficulty");
+      if (recDifficulty && difficultySelect) {
+        recDifficulty.textContent = difficultySelect.value;
+      }
 
       // Open Success modal
       if (successModal) {
