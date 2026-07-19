@@ -208,7 +208,7 @@
         "  </div>" +
         "  <div class='modal-download-cta'>" +
         "    <p>평가 루브릭을 내 한글(HWP)/엑셀 파일로 소장하고 나이스(NEIS)에 바로 연동하세요.</p>" +
-        "    <button type='button' class='btn btn-primary btn-sm' onclick='triggerSignup(\"평가 가이드라인\")'>평가 루브릭 양식 받기</button>" +
+        "    <button type='button' class='btn btn-primary btn-sm' onclick='triggerSignup(\"평가 루브릭\")'>평가 루브릭 양식 받기</button>" +
         "  </div>" +
         "</div>";
 

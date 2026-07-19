@@ -1636,8 +1636,9 @@ body.trial-page {
   margin-bottom: 28px;
 }
 .signup-logo {
-  width: 46px;
+  width: 39px;
   height: 46px;
+  object-fit: contain;
   margin-bottom: 12px;
 }
 .signup-header h2 {
