@@ -124,26 +124,26 @@ br.only-mobile{ display: none; content: ""; }
 .brand{
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-weight: 800;
   font-size: 1.15rem;
   letter-spacing: -0.01em;
   flex-shrink: 0;
 }
 .brand-logo{
-  width: 38px;
+  width: 50px;
   height: 38px;
   object-fit: contain;
   opacity: 1;
   transform: translateY(0);
-  animation: logoSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: logoClimbUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) backwards;
   transition: transform 0.4s var(--ease);
 }
 .brand-word{
   color: var(--purple-900);
   opacity: 1;
-  transform: translateY(0);
-  animation: logoSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s backwards;
+  transform: translateX(0);
+  animation: logoTextFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
   transition: color 0.3s var(--ease);
 }
 .brand-word em{
@@ -155,7 +155,7 @@ br.only-mobile{ display: none; content: ""; }
 
 /* Brand Hover Micro-interactions */
 .brand:hover .brand-logo{
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.08) rotate(3deg);
 }
 .brand:hover .brand-word{
   color: var(--purple-600);
@@ -164,10 +164,30 @@ br.only-mobile{ display: none; content: ""; }
   color: var(--purple-400);
 }
 
-@keyframes logoSlideDown {
+@keyframes logoClimbUp {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoTextFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -829,7 +849,13 @@ br.only-mobile{ display: none; content: ""; }
   border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 .footer-brand{ display: flex; align-items: center; gap: 14px; }
-.footer-logo{ width: 40px; height: 40px; object-fit: contain; }
+.footer-logo{
+  width: 53px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
 .footer-name{ font-weight: 800; color: #fff; font-size: 1.05rem; }
 .footer-tagline{ font-size: 0.8rem; margin-top: 2px; color: rgba(255,255,255,0.55); }
 .footer-nav{ display: flex; gap: 22px; flex-wrap: wrap; }
