@@ -5,6 +5,34 @@
   var selectedAiType = "창의적 활동";
   var isGenerated = false;
 
+  var topicOptions = {
+    "수학": [
+      "공통수학 1",
+      "공통수학 2",
+      "대수",
+      "미적분 I",
+      "확률과 통계",
+      "미적분 II",
+      "기하"
+    ],
+    "영어": [
+      "공통영어 1",
+      "공통영어 2",
+      "기본영어 1",
+      "기본영어 2",
+      "영어 I",
+      "영어 II",
+      "독해와 작문",
+      "영미문학읽기",
+      "영어 발표와 토론",
+      "직무 영어",
+      "심화 영어",
+      "실생활 영어 회화",
+      "미디어 영어",
+      "세계 문화와 영어"
+    ]
+  };
+
   // DOM Elements
   var aiTypeBtns = document.querySelectorAll(".ai-type-btn");
   var generateBtn = document.getElementById("generateBtn");
@@ -18,6 +46,15 @@
   var subjectSelect = document.getElementById("subjectSelect");
   var gradeSelect = document.getElementById("gradeSelect");
   var topicInput = document.getElementById("topicInput");
+  var topicSelect = document.getElementById("topicSelect");
+  var topicSelectWrapper = document.getElementById("topicSelectWrapper");
+
+  function getTopic() {
+    if (subjectSelect && topicOptions[subjectSelect.value] && topicSelect) {
+      return topicSelect.value.trim();
+    }
+    return topicInput ? topicInput.value.trim() : "";
+  }
 
   // Signup & Success Elements
   var signupModal = document.getElementById("signupModal");
@@ -35,24 +72,59 @@
     });
   });
 
-  // 1.5. Subject select change - update default topic input
-  if (subjectSelect && topicInput) {
-    subjectSelect.addEventListener("change", function () {
-      if (subjectSelect.value === "수학") {
-        topicInput.value = "방정식과 함수";
-      } else if (subjectSelect.value === "영어") {
-        topicInput.value = "영어 에세이 작성";
+  // 1.5. Subject select change - toggle between text input and select dropdown
+  function updateTopicInputState() {
+    if (!subjectSelect || !topicInput || !topicSelectWrapper || !topicSelect) return;
+    
+    var topicLabel = document.querySelector('label[for="topicInput"]');
+    var subject = subjectSelect.value;
+    
+    if (topicOptions[subject]) {
+      topicInput.style.display = "none";
+      topicSelectWrapper.style.display = "block";
+      if (topicLabel) topicLabel.textContent = "단원/주제 검색:";
+      
+      // Populate options
+      topicSelect.innerHTML = "";
+      topicOptions[subject].forEach(function (opt, index) {
+        var optionEl = document.createElement("option");
+        optionEl.value = opt;
+        optionEl.textContent = opt;
+        if (index === 0) {
+          optionEl.selected = true;
+        }
+        topicSelect.appendChild(optionEl);
+      });
+    } else {
+      topicInput.style.display = "block";
+      topicSelectWrapper.style.display = "none";
+      if (topicLabel) topicLabel.textContent = "단원/주제 검색:";
+      
+      if (subject === "과학") {
+        topicInput.value = "태양계와 별";
+      } else {
+        topicInput.value = "";
       }
-    });
+    }
+  }
+
+  if (subjectSelect) {
+    subjectSelect.addEventListener("change", updateTopicInputState);
+    // Run once on load to establish correct state
+    updateTopicInputState();
   }
 
   // 2. Generate Click Simulation
   if (generateBtn) {
     generateBtn.addEventListener("click", function () {
-      var topic = topicInput.value.trim();
+      var topic = getTopic();
       if (!topic) {
         alert("단원/주제명을 입력해 주세요.");
-        topicInput.focus();
+        if (subjectSelect.value === "수학" && topicSelect) {
+          topicSelect.focus();
+        } else if (topicInput) {
+          topicInput.focus();
+        }
         return;
       }
 
@@ -104,7 +176,7 @@
   window.openPreview = function (type) {
     if (!isGenerated) return;
 
-    var topic = topicInput.value.trim() || "방정식과 함수";
+    var topic = getTopic() || "방정식과 함수";
     var subject = subjectSelect.value;
     var grade = gradeSelect.value;
     var previewContent = document.getElementById("previewContent");
@@ -401,7 +473,7 @@
       var email = document.getElementById("userEmail").value;
       var phone = document.getElementById("userPhone").value;
 
-      var topic = topicInput.value.trim() || "방정식과 함수";
+      var topic = getTopic() || "방정식과 함수";
       var subject = subjectSelect.value;
       var grade = gradeSelect.value;
 
