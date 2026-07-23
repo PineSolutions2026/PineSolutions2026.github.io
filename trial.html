@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.1.4">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.2.0">
 </head>
 
 <body class="trial-page">
@@ -41,26 +41,9 @@
           <h2 class="panel-title">단계별 AI 수업 플래너</h2>
           
           <div class="step-list">
-            <!-- Step 1: 과목 선택 -->
+            <!-- Step 1: 학년 선택 -->
             <div class="step-item">
               <div class="step-num">1</div>
-              <div class="step-content">
-                <label for="subjectSelect" class="step-label">과목 선택:</label>
-                <div class="select-wrapper">
-                  <select id="subjectSelect">
-                    <option value="수학" selected>수학 (지원)</option>
-                    <option value="영어">영어 (지원)</option>
-                    <option value="국어" disabled>국어 (준비 중)</option>
-                    <option value="과학" disabled>과학 (준비 중)</option>
-                    <option value="사회" disabled>사회 (준비 중)</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Step 2: 학년 선택 -->
-            <div class="step-item">
-              <div class="step-num">2</div>
               <div class="step-content">
                 <label for="gradeSelect" class="step-label">학년 선택:</label>
                 <div class="select-wrapper">
@@ -76,21 +59,34 @@
               </div>
             </div>
 
-            <!-- Step 3: 단원/주제 선택 -->
+            <!-- Step 2: 교과목 선택 -->
             <div class="step-item">
-              <div class="step-num">3</div>
+              <div class="step-num">2</div>
               <div class="step-content">
-                <label for="topicInput" class="step-label">단원/주제 검색:</label>
-                <input type="text" id="topicInput" value="방정식과 함수" placeholder="예: 방정식과 함수, 태양계와 별" style="display: none;">
-                <div class="select-wrapper" id="topicSelectWrapper">
-                  <select id="topicSelect">
+                <label for="subjectSelect" class="step-label">교과목 선택:</label>
+                <div class="select-wrapper">
+                  <select id="subjectSelect">
                     <option value="공통수학 1" disabled>공통수학 1 (준비 중)</option>
                     <option value="공통수학 2" disabled>공통수학 2 (준비 중)</option>
                     <option value="대수" disabled>대수 (준비 중)</option>
                     <option value="미적분 I" disabled>미적분 I (준비 중)</option>
-                    <option value="확률과 통계" selected>확률과 통계</option>
+                    <option value="확률과 통계" selected>확률과 통계 (수학)</option>
                     <option value="미적분 II" disabled>미적분 II (준비 중)</option>
                     <option value="기하" disabled>기하 (준비 중)</option>
+                    <option value="독해와 작문">독해와 작문 (영어)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: 단원/주제 -->
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <label for="topicSelect" class="step-label">단원/주제:</label>
+                <div class="select-wrapper">
+                  <select id="topicSelect" disabled>
+                    <option value="" selected disabled>단원/주제 선택 (준비 중)</option>
                   </select>
                 </div>
               </div>
@@ -156,7 +152,24 @@
               </div>
             </div>
 
-            <h2 class="panel-title">AI 생성 수업 자료</h2>
+            <div class="panel-header">
+              <h2 class="panel-title">AI 생성 수업 자료</h2>
+              <div class="panel-nav">
+                <div class="panel-nav-tabs">
+                  <div class="panel-nav-tab active">홈</div>
+                  <div class="panel-nav-tab">내 리소스</div>
+                  <div class="panel-nav-tab">AI 탐색</div>
+                  <div class="panel-nav-tab">우리 학교</div>
+                  <div class="panel-nav-tab">설정</div>
+                </div>
+                <div class="panel-nav-profile">
+                  <svg class="profile-avatar" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="12" fill="#E2E8F0" />
+                    <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#94A3B8" />
+                  </svg>
+                </div>
+              </div>
+            </div>
             <p class="panel-subtitle">원하는 자료를 클릭하여 미리보거나 정식 다운로드하세요.</p>
 
             <div class="resources-grid">
@@ -277,6 +290,21 @@
           <input type="text" id="schoolName" required placeholder="예: 서울미래고등학교">
         </div>
         <div class="form-group">
+          <label for="userSubject">과목 선택</label>
+          <div class="select-wrapper">
+            <select id="userSubject" required>
+              <option value="" disabled selected>담당 과목을 선택해 주세요</option>
+              <option value="수학">수학</option>
+              <option value="영어">영어</option>
+              <option value="국어">국어</option>
+              <option value="과학">과학</option>
+              <option value="사회">사회</option>
+              <option value="정보/컴퓨터">정보/컴퓨터</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
           <label for="userEmail">이메일 주소</label>
           <input type="email" id="userEmail" required placeholder="example@school.edu">
           <small class="form-help">무료 계정 로그인 정보와 산출물 다운로드 파일이 이메일로 발송됩니다.</small>
@@ -323,7 +351,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.1.4"></script>
+  <script src="assets/js/trial.js?v=1.2.0"></script>
 </body>
 
 </html>

@@ -51,10 +51,13 @@
   var topicSelectWrapper = document.getElementById("topicSelectWrapper");
 
   function getTopic() {
-    if (subjectSelect && topicOptions[subjectSelect.value] && topicSelect) {
+    if (topicSelect && topicSelect.value) {
       return topicSelect.value.trim();
     }
-    return topicInput ? topicInput.value.trim() : "";
+    if (topicInput && topicInput.value) {
+      return topicInput.value.trim();
+    }
+    return "단원/주제 (학습 설계)";
   }
 
   // Signup & Success Elements
@@ -73,72 +76,10 @@
     });
   });
 
-  // 1.5. Subject select change - toggle between text input and select dropdown
-  function updateTopicInputState() {
-    if (!subjectSelect || !topicInput || !topicSelectWrapper || !topicSelect) return;
-    
-    var topicLabel = document.querySelector('label[for="topicInput"]');
-    var subject = subjectSelect.value;
-    
-    if (topicOptions[subject]) {
-      topicInput.style.display = "none";
-      topicSelectWrapper.style.display = "block";
-      if (topicLabel) topicLabel.textContent = "단원/주제 검색:";
-      
-      // Populate options
-      topicSelect.innerHTML = "";
-      topicOptions[subject].forEach(function (opt, index) {
-        var optionEl = document.createElement("option");
-        if (typeof opt === "string") {
-          optionEl.value = opt;
-          optionEl.textContent = opt;
-          if (index === 0) {
-            optionEl.selected = true;
-          }
-        } else {
-          optionEl.value = opt.value;
-          optionEl.textContent = opt.text;
-          if (opt.disabled) {
-            optionEl.disabled = true;
-          }
-          if (opt.selected) {
-            optionEl.selected = true;
-          }
-        }
-        topicSelect.appendChild(optionEl);
-      });
-    } else {
-      topicInput.style.display = "block";
-      topicSelectWrapper.style.display = "none";
-      if (topicLabel) topicLabel.textContent = "단원/주제 검색:";
-      
-      if (subject === "과학") {
-        topicInput.value = "태양계와 별";
-      } else {
-        topicInput.value = "";
-      }
-    }
-  }
-
-  if (subjectSelect) {
-    subjectSelect.addEventListener("change", updateTopicInputState);
-    // Run once on load to establish correct state
-    updateTopicInputState();
-  }
-
   // 2. Generate Click Simulation
   if (generateBtn) {
     generateBtn.addEventListener("click", function () {
       var topic = getTopic();
-      if (!topic) {
-        alert("단원/주제명을 입력해 주세요.");
-        if (subjectSelect.value === "수학" && topicSelect) {
-          topicSelect.focus();
-        } else if (topicInput) {
-          topicInput.focus();
-        }
-        return;
-      }
 
       // Start generation sequence
       isGenerated = false;
@@ -152,7 +93,7 @@
 
       var logs = [
         "🔍 1. 국가교육과정 성취기준 분석 중...",
-        "⚙️ 2. 학년(" + gradeSelect.value + "), 난이도(" + (difficultySelect ? difficultySelect.value : "기초") + ") 및 교과(" + subjectSelect.value + ") 핵심 역량 추출...",
+        "⚙️ 2. 학년(" + gradeSelect.value + "), 난이도(" + (difficultySelect ? difficultySelect.value : "기초") + ") 및 교과목(" + subjectSelect.value + ") 핵심 역량 추출...",
         "🎨 3. AI 융합 유형(" + selectedAiType + ") 맞춤형 교수법 매핑...",
         "🖥️ 4. 수업 PPT 슬라이드 내용 구성 중...",
         "📝 5. 차시별 교수·학습 지도안 세부 아웃라인 작성 중...",
@@ -483,6 +424,8 @@
 
       var name = document.getElementById("userName").value;
       var school = document.getElementById("schoolName").value;
+      var userSubjectEl = document.getElementById("userSubject");
+      var userSubjectVal = userSubjectEl ? userSubjectEl.value : "";
       var email = document.getElementById("userEmail").value;
       var phone = document.getElementById("userPhone").value;
 
@@ -511,4 +454,13 @@
       }
     });
   }
+
+  // 7. Interactive Panel Nav Tabs
+  var panelNavTabs = document.querySelectorAll(".panel-nav-tab");
+  panelNavTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      panelNavTabs.forEach(function (t) { t.classList.remove("active"); });
+      tab.classList.add("active");
+    });
+  });
 })();
