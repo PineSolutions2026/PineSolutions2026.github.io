@@ -4,14 +4,17 @@
   // State variables
   var selectedAiType = "창의적 활동";
   var isGenerated = false;
+  var roleParam = new URLSearchParams(window.location.search).get("role");
+  var selectedRole = roleParam === "student" ? "student" : "teacher";
+  var roleLabel = selectedRole === "student" ? "학생용" : "교사용";
 
   var topicOptions = {
     "수학": [
       { value: "공통수학 1", text: "공통수학 1 (준비 중)", disabled: true },
-      { value: "공통수학 2", text: "공통수학 2 (준비 중)", disabled: true },
+      { value: "공통수학 2", text: "공통수학 2", selected: true },
       { value: "대수", text: "대수 (준비 중)", disabled: true },
       { value: "미적분 I", text: "미적분 I (준비 중)", disabled: true },
-      { value: "확률과 통계", text: "확률과 통계", selected: true },
+      { value: "확률과 통계", text: "확률과 통계 (준비 중)", disabled: true },
       { value: "미적분 II", text: "미적분 II (준비 중)", disabled: true },
       { value: "기하", text: "기하 (준비 중)", disabled: true }
     ],
@@ -30,8 +33,45 @@
       { value: "실생활 영어 회화", text: "실생활 영어 회화 (준비 중)", disabled: true },
       { value: "미디어 영어", text: "미디어 영어 (준비 중)", disabled: true },
       { value: "세계 문화와 영어", text: "세계 문화와 영어 (준비 중)", disabled: true }
+    ],
+    "국어": [
+      { value: "문법", text: "문법 (준비 중)", disabled: true },
+      { value: "독서", text: "독서 (준비 중)", disabled: true },
+      { value: "작문", text: "작문 (준비 중)", disabled: true }
+    ],
+    "과학": [
+      { value: "물리", text: "물리 (준비 중)", disabled: true },
+      { value: "화학", text: "화학 (준비 중)", disabled: true },
+      { value: "생명과학", text: "생명과학 (준비 중)", disabled: true }
+    ],
+    "사회": [
+      { value: "역사", text: "역사 (준비 중)", disabled: true },
+      { value: "지리", text: "지리 (준비 중)", disabled: true },
+      { value: "윤리", text: "윤리 (준비 중)", disabled: true }
     ]
   };
+
+  function refreshTopicOptions() {
+    var subject = subjectSelect.value;
+    var topics = topicOptions[subject] || [];
+    topicSelect.innerHTML = "";
+
+    if (topics.length === 0) {
+      topicSelect.disabled = true;
+      topicSelect.innerHTML = "<option value=\"\" selected disabled>해당 과목의 단원/주제는 준비 중입니다.</option>";
+      return;
+    }
+
+    topics.forEach(function (item) {
+      var option = document.createElement("option");
+      option.value = item.value;
+      option.textContent = item.text;
+      if (item.disabled) option.disabled = true;
+      if (item.selected) option.selected = true;
+      topicSelect.appendChild(option);
+    });
+    topicSelect.disabled = false;
+  }
 
   // DOM Elements
   var aiTypeBtns = document.querySelectorAll(".ai-type-btn");
@@ -50,6 +90,11 @@
   var topicSelect = document.getElementById("topicSelect");
   var topicSelectWrapper = document.getElementById("topicSelectWrapper");
 
+  if (subjectSelect) {
+    subjectSelect.addEventListener("change", refreshTopicOptions);
+  }
+  refreshTopicOptions();
+
   function getTopic() {
     if (topicSelect && topicSelect.value) {
       return topicSelect.value.trim();
@@ -66,6 +111,27 @@
   var successModal = document.getElementById("successModal");
   var signupForm = document.getElementById("signupForm");
   var selectedResourceLabel = document.getElementById("selectedResourceLabel");
+  var trialRoleBadge = document.getElementById("trialRoleBadge");
+  var trialTitle = document.getElementById("trialTitle");
+  var trialSubtitle = document.getElementById("trialSubtitle");
+  var signupTitle = document.getElementById("signupTitle");
+
+  if (trialRoleBadge) {
+    trialRoleBadge.textContent = roleLabel + " 체험";
+  }
+  if (trialTitle) {
+    trialTitle.textContent = selectedRole === "student"
+      ? "AI로 더 똑똑하게 배우는 수업 체험"
+      : "나만의 맞춤형 AI 융합 수업 만들기";
+  }
+  if (trialSubtitle) {
+    trialSubtitle.textContent = selectedRole === "student"
+      ? "학생이 직접 체험할 수 있는 AI 기반 학습 활동과 자료를 미리 확인해 보세요."
+      : "교사의 수업 준비를 돕는 AI 수업 패키지를 바로 체험해 보세요.";
+  }
+  if (signupTitle) {
+    signupTitle.textContent = "PINE Model " + roleLabel + " 무료 체험 신청";
+  }
 
   // 1. AI Type Selection Toggle
   aiTypeBtns.forEach(function (btn) {
@@ -439,6 +505,7 @@
       // Set values on success modal
       document.getElementById("recName").textContent = name;
       document.getElementById("recSchool").textContent = school;
+      document.getElementById("recRole").textContent = roleLabel + " 체험";
       document.getElementById("recEmail").textContent = email;
       document.getElementById("recTopic").textContent = topic;
       document.getElementById("recSubject").textContent = subject;

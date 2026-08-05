@@ -265,6 +265,8 @@ br.only-mobile{ display: none; content: ""; }
 .main-nav a:hover{ background: var(--purple-100); color: var(--purple-800); }
 
 .header-actions{ display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.cta-split{ display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cta-split .btn{ padding: 10px 16px; }
 
 .nav-toggle{
   display: none;
@@ -379,7 +381,12 @@ br.only-mobile{ display: none; content: ""; }
   margin-top: 6px;
 }
 .hero-lead strong{ color: var(--purple-700); }
-.hero-cta{ display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+.hero-cta{ display: flex; gap: 14px 16px; margin-top: 32px; flex-wrap: wrap; align-items: center; justify-content: flex-start; }
+.hero-cta .btn{ min-width: 220px; padding: 15px 24px; border-width: 1.5px; box-shadow: 0 8px 22px rgba(42, 17, 71, 0.08); }
+.hero-cta .btn-primary{ box-shadow: 0 14px 30px rgba(90, 42, 174, 0.28); }
+.hero-cta .btn-ghost{ background: rgba(255, 255, 255, 0.9); border-color: var(--purple-300); }
+.hero-cta .btn-ghost:hover{ background: var(--purple-100); box-shadow: 0 10px 24px rgba(42, 17, 71, 0.1); }
+.hero-cta .btn:hover{ transform: translateY(-2px); }
 
 .hero-stats{
   display: flex;
@@ -1032,6 +1039,7 @@ br.only-mobile{ display: none; content: ""; }
   .main-nav.open a{ padding: 14px 8px; border-bottom: 1px solid var(--border); border-radius: 0; }
 
   .header-actions .btn-sm{ display: none; }
+  .cta-split{ display: none; }
 
   .hero-inner{ grid-template-columns: 1fr; }
   .hero-visual{ order: -1; margin-bottom: 8px; }
@@ -1097,6 +1105,28 @@ body.trial-page {
 }
 .trial-wrapper {
   max-width: var(--container);
+}
+.trial-intro {
+  margin-bottom: 24px;
+}
+.trial-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(217, 54, 112, 0.12);
+  color: var(--trial-pink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.trial-subtitle {
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 1rem;
 }
 .trial-title {
   text-align: center;

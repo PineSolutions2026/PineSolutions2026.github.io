@@ -32,7 +32,11 @@
 
   <main class="trial-main">
     <div class="container trial-wrapper">
-      <h1 class="trial-title">나만의 맞춤형 AI 융합 수업 만들기</h1>
+      <div class="trial-intro">
+        <span class="trial-role-badge" id="trialRoleBadge">교사용 체험</span>
+        <h1 class="trial-title" id="trialTitle">나만의 맞춤형 AI 융합 수업 만들기</h1>
+        <p class="trial-subtitle" id="trialSubtitle">교사의 수업 준비를 돕는 AI 수업 패키지를 바로 체험해 보세요.</p>
+      </div>
 
       <div class="trial-grid">
         
@@ -66,14 +70,11 @@
                 <label for="subjectSelect" class="step-label">교과목 선택:</label>
                 <div class="select-wrapper">
                   <select id="subjectSelect">
-                    <option value="공통수학 1" disabled>공통수학 1 (준비 중)</option>
-                    <option value="공통수학 2" disabled>공통수학 2 (준비 중)</option>
-                    <option value="대수" disabled>대수 (준비 중)</option>
-                    <option value="미적분 I" disabled>미적분 I (준비 중)</option>
-                    <option value="확률과 통계" selected>확률과 통계 (수학)</option>
-                    <option value="미적분 II" disabled>미적분 II (준비 중)</option>
-                    <option value="기하" disabled>기하 (준비 중)</option>
-                    <option value="독해와 작문">독해와 작문 (영어)</option>
+                    <option value="국어">국어</option>
+                    <option value="영어">영어</option>
+                    <option value="수학" selected>수학</option>
+                    <option value="과학" disabled>과학 (준비 중)</option>
+                    <option value="사회" disabled>사회 (준비 중)</option>
                   </select>
                 </div>
               </div>
@@ -276,7 +277,7 @@
       <button type="button" class="modal-close" onclick="closeSignupModal()">&times;</button>
       <div class="signup-header">
         <img src="assets/img/logo.png" alt="PINE Model" class="signup-logo">
-        <h2>PINE Model 무료 체험 신청</h2>
+        <h2 id="signupTitle">PINE Model 무료 체험 신청</h2>
         <p>간단한 가입 정보 입력 후, 방금 생성하신 <strong id="selectedResourceLabel" class="accent-text" style="display:inline-block;">수업 리소스 패키지</strong> 전체 파일과 3일 프리미엄 무료 플랜 계정을 받아보세요.</p>
       </div>
       <form id="signupForm" class="signup-form">
@@ -328,8 +329,9 @@
       <div class="success-details">
         <p>신선한 교실 변화의 시작, PINE Model과 함께해 주셔서 감사합니다.</p>
         <div class="receipt-card">
-          <p><strong>신청 교사:</strong> <span id="recName" style="color:var(--trial-pink); font-weight:700;"></span> 선생님</p>
+          <p><strong>신청자:</strong> <span id="recName" style="color:var(--trial-pink); font-weight:700;"></span></p>
           <p><strong>소속 학교:</strong> <span id="recSchool"></span></p>
+          <p><strong>신청 유형:</strong> <span id="recRole"></span></p>
           <p><strong>발급 계정 (ID):</strong> <span id="recEmail"></span></p>
           <p><strong>체험 혜택:</strong> 3일 프리미엄 무료 체험권 제공</p>
           <p><strong>가상 설계 수업:</strong> <span id="recTopic" style="color:var(--trial-pink); font-weight:700;"></span> (<span id="recSubject"></span>, <span id="recGrade"></span>, 난이도: <span id="recDifficulty"></span>)</p>
