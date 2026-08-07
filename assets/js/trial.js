@@ -86,6 +86,7 @@
   var subjectSelect = document.getElementById("subjectSelect");
   var gradeSelect = document.getElementById("gradeSelect");
   var difficultySelect = document.getElementById("difficultySelect");
+  var totalSessionsSelect = document.getElementById("totalSessionsSelect");
   var topicInput = document.getElementById("topicInput");
   var topicSelect = document.getElementById("topicSelect");
   var topicSelectWrapper = document.getElementById("topicSelectWrapper");
@@ -159,7 +160,7 @@
 
       var logs = [
         "🔍 1. 국가교육과정 성취기준 분석 중...",
-        "⚙️ 2. 학년(" + gradeSelect.value + "), 난이도(" + (difficultySelect ? difficultySelect.value : "기초") + ") 및 교과목(" + subjectSelect.value + ") 핵심 역량 추출...",
+        "⚙️ 2. 학년(" + gradeSelect.value + "), 난이도(" + (difficultySelect ? difficultySelect.value : "기초") + ") 및 총 차시(" + (totalSessionsSelect ? totalSessionsSelect.value : "1") + ") 교과목(" + subjectSelect.value + ") 핵심 역량 추출...",
         "🎨 3. AI 융합 유형(" + selectedAiType + ") 맞춤형 교수법 매핑...",
         "🖥️ 4. 수업 PPT 슬라이드 내용 구성 중...",
         "📝 5. 차시별 교수·학습 지도안 세부 아웃라인 작성 중...",
