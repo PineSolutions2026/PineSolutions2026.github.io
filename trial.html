@@ -116,23 +116,22 @@
               <div class="step-num">9</div>
               <div class="step-content">
                 <label for="ocrUpload" class="step-label">자료 선택 및 OCR 업로드 (선택):</label>
-                <div class="material-upload-card compact-upload-card">
+                <div class="material-upload-card compact-upload-card simple-upload-card">
                   <label for="ocrUpload" class="upload-dropzone compact-dropzone">
+                    <div class="upload-icon">⬆️</div>
                     <div>
-                      <div class="upload-icon">⬆️</div>
                       <strong>PDF/PPT/이미지 업로드</strong>
-                      <p>업로드한 파일을 OCR로 분석하여 수업에 반영합니다.</p>
+                      <p>파일 선택 시 OCR 분석을 통해 강의에 반영합니다.</p>
                     </div>
                     <input id="ocrUpload" type="file" accept=".pdf,.ppt,.pptx,.png,.jpg,.jpeg" multiple>
                   </label>
                   <div class="upload-specs compact-specs">
-                    <div><strong>PDF</strong> 최대 200페이지</div>
-                    <div><strong>PPTX</strong> 최대 60슬라이드</div>
-                    <div><strong>이미지</strong> 최대 5개, 50MB/개</div>
+                    <div>PDF 200p / PPTX 60슬라이드 / 이미지 5개</div>
+                    <div>50MB/개, 최대 250MB</div>
                   </div>
-                  <div class="upload-summary" id="uploadSummary">선택한 파일 합계: 0 KB</div>
+                  <div class="upload-summary" id="uploadSummary">선택된 파일: 0 KB</div>
                 </div>
-                <small class="step-hint">PDF/PPT/이미지 업로드 시 OCR 분석 결과를 반영합니다.</small>
+                <small class="step-hint">선택 사항입니다. 업로드하지 않아도 이용 가능합니다.</small>
               </div>
             </div>
 

@@ -1167,10 +1167,9 @@ body.trial-page {
 }
 .step-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(220px, 260px);
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(200px, 240px);
   grid-auto-flow: dense;
-  grid-auto-rows: minmax(0, auto);
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 16px;
   align-items: start;
 }
@@ -1179,9 +1178,9 @@ body.trial-page {
   grid-template-columns: 32px 1fr;
   gap: 10px;
   align-items: flex-start;
-  padding: 10px 12px;
+  padding: 10px 10px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 12px;
   background: #fff;
 }
 .step-item::after {
@@ -1196,7 +1195,7 @@ body.trial-page {
   grid-column: 5;
   grid-row: 3;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: 0;
   border: none;
   background: transparent;
@@ -1205,7 +1204,7 @@ body.trial-page {
   width: 100%;
   padding: 12px 0;
   margin: 0;
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: none;
 }
 @media (max-width: 1200px) {
@@ -1232,29 +1231,30 @@ body.trial-page {
 
 .material-upload-card {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px;
+  border-radius: 12px;
+  padding: 10px;
   background: #fff;
 }
 .upload-dropzone {
   display: grid;
-  justify-items: center;
-  gap: 8px;
-  padding: 12px;
-  border-radius: 14px;
-  border: 1px dashed var(--border);
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
   cursor: pointer;
-  text-align: center;
+  text-align: left;
   color: var(--ink);
-  background: transparent;
+  background: #faf7ff;
 }
 .upload-dropzone:hover {
-  background: rgba(156, 96, 224, 0.04);
+  background: #f4efff;
 }
 .compact-dropzone .upload-icon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .upload-dropzone strong {
   display: block;
@@ -1263,13 +1263,12 @@ body.trial-page {
 }
 .upload-dropzone p {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   line-height: 1.4;
   color: var(--ink-soft);
 }
 .upload-specs {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
   font-size: 0.82rem;
   color: var(--ink-soft);
