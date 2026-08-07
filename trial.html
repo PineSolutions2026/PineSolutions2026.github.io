@@ -52,12 +52,12 @@
                 <label for="gradeSelect" class="step-label">학년 선택:</label>
                 <div class="select-wrapper">
                   <select id="gradeSelect">
-                    <option value="중학교 1학년" selected>중학교 1학년 (중1)</option>
-                    <option value="중학교 2학년">중학교 2학년 (중2)</option>
-                    <option value="중학교 3학년">중학교 3학년 (중3)</option>
-                    <option value="고등학교 1학년">고등학교 1학년 (고1)</option>
-                    <option value="고등학교 2학년">고등학교 2학년 (고2)</option>
-                    <option value="고등학교 3학년">고등학교 3학년 (고3)</option>
+                    <option value="중학교 1학년" disabled>중학교 1학년 (중1) - 준비 중</option>
+                    <option value="중학교 2학년" disabled>중학교 2학년 (중2) - 준비 중</option>
+                    <option value="중학교 3학년" disabled>중학교 3학년 (중3) - 준비 중</option>
+                    <option value="고등학교 1학년" selected>고등학교 1학년 (고1)</option>
+                    <option value="고등학교 2학년" disabled>고등학교 2학년 (고2) - 준비 중</option>
+                    <option value="고등학교 3학년" disabled>고등학교 3학년 (고3) - 준비 중</option>
                   </select>
                 </div>
               </div>
@@ -127,7 +127,7 @@
             </div>
 
             <!-- Step 5: AI 융합 유형 선택 -->
-            <div class="step-item last-step">
+            <div class="step-item">
               <div class="step-num">5</div>
               <div class="step-content">
                 <span class="step-label" style="color: var(--trial-pink);">AI 융합 유형 선택:</span>
@@ -145,6 +145,33 @@
                     <span>콘텐츠 생성</span>
                   </button>
                 </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-num">6</div>
+              <div class="step-content">
+                <label for="referenceNotes" class="step-label">참고자료 (선택):</label>
+                <textarea id="referenceNotes" placeholder="포함하고 싶은 교재, 사례, 키워드 등을 자유롭게 적어주세요." rows="4"></textarea>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-num">7</div>
+              <div class="step-content">
+                <label for="extraInstructions" class="step-label">추가 지시사항 (선택):</label>
+                <textarea id="extraInstructions" placeholder="예: 실무 사례 2개 이상 포함, 전문 용어 설명 포함, 요약 체크리스트 추가 등"></textarea>
+              </div>
+            </div>
+
+            <div class="step-item last-step">
+              <div class="step-num">8</div>
+              <div class="step-content">
+                <label for="ocrUpload" class="step-label">OCR 자료 업로드 (선택):</label>
+                <div class="select-wrapper file-upload-wrapper">
+                  <input id="ocrUpload" type="file" accept=".pdf,.ppt,.pptx,.png,.jpg,.jpeg" multiple>
+                </div>
+                <small class="step-hint">PDF/PPT/이미지 파일을 업로드하면 OCR로 참고할 수 있습니다.</small>
               </div>
             </div>
           </div>
