@@ -20,7 +20,7 @@
     ],
     "영어": [
       { value: "공통영어 1", text: "공통영어 1 (준비 중)", disabled: true },
-      { value: "공통영어 2", text: "공통영어 2", selected: true },
+      { value: "공통영어 2", text: "공통영어 2", disabled: false, selected: true },
       { value: "기본영어 1", text: "기본영어 1 (준비 중)", disabled: true },
       { value: "기본영어 2", text: "기본영어 2 (준비 중)", disabled: true },
       { value: "영어 I", text: "영어 I (준비 중)", disabled: true },
