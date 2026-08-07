@@ -39,7 +39,6 @@
       </div>
 
       <div class="trial-grid">
-        
         <!-- LEFT: Stepby-Step Lesson Planner -->
         <section class="planner-panel">
           <h2 class="panel-title">단계별 AI 수업 플래너</h2>
@@ -110,7 +109,6 @@
               </div>
             </div>
 
-            <!-- Step 5: 총 차시 -->
             <div class="step-item">
               <div class="step-num">5</div>
               <div class="step-content">
@@ -126,11 +124,10 @@
               </div>
             </div>
 
-            <!-- Step 5: AI 융합 유형 선택 -->
             <div class="step-item">
-              <div class="step-num">5</div>
+              <div class="step-num">6</div>
               <div class="step-content">
-                <span class="step-label" style="color: var(--trial-pink);">AI 융합 유형 선택:</span>
+                <label for="aiTypeSelect" class="step-label">AI 융합 유형 선택:</label>
                 <div class="ai-types-grid">
                   <button type="button" class="ai-type-btn active" data-type="창의적 활동">
                     <div class="ai-type-icon">🎨</div>
@@ -149,7 +146,7 @@
             </div>
 
             <div class="step-item">
-              <div class="step-num">6</div>
+              <div class="step-num">7</div>
               <div class="step-content">
                 <label for="referenceNotes" class="step-label">참고자료 (선택):</label>
                 <textarea id="referenceNotes" placeholder="예: 교과서 3장, 지문 분석 자료, 토론 주제, 평가 기준 키워드 등을 입력하세요." rows="4"></textarea>
@@ -157,7 +154,7 @@
             </div>
 
             <div class="step-item">
-              <div class="step-num">7</div>
+              <div class="step-num">8</div>
               <div class="step-content">
                 <label for="extraInstructions" class="step-label">추가 지시사항 (선택):</label>
                 <textarea id="extraInstructions" placeholder="예: 핵심 개념 중심 구성, 활동지 연계, 실무 사례 2개 포함, 서술형 평가 문항 포함"></textarea>
@@ -165,7 +162,7 @@
             </div>
 
             <div class="step-item last-step">
-              <div class="step-num">8</div>
+              <div class="step-num">9</div>
               <div class="step-content">
                 <label for="ocrUpload" class="step-label">자료 선택 및 OCR 업로드 (선택):</label>
                 <div class="material-upload-card">
@@ -194,70 +191,69 @@
             <button type="button" id="generateBtn" class="btn btn-primary btn-generate">리소스 생성</button>
           </div>
         </section>
+      </div>
 
-        <!-- RIGHT: Generated Lesson Resources & Banner -->
-        <div class="right-column">
-          <section class="resources-panel locked" id="resourcesPanel">
-            
-            <!-- Default Locked Overlay -->
-            <div class="panel-overlay" id="panelOverlay">
-              <div class="overlay-content">
-                <div class="spinner-container">
-                  <div class="loader-spinner" id="loaderSpinner" style="display:none;"></div>
-                  <div class="robot-glow" id="robotGlow">🤖</div>
-                </div>
-                <p class="overlay-text" id="overlayText">왼쪽의 플래너에서 조건을 입력하고 <br><strong>'리소스 생성'</strong>을 클릭해 보세요.</p>
-                <div class="generation-logs" id="generationLogs" style="display:none;"></div>
+      <section class="resources-panel locked" id="resourcesPanel">
+        
+        <!-- Default Locked Overlay -->
+        <div class="panel-overlay" id="panelOverlay">
+          <div class="overlay-content">
+            <div class="spinner-container">
+              <div class="loader-spinner" id="loaderSpinner" style="display:none;"></div>
+              <div class="robot-glow" id="robotGlow">🤖</div>
+            </div>
+            <p class="overlay-text" id="overlayText">왼쪽의 플래너에서 조건을 입력하고 <br><strong>'리소스 생성'</strong>을 클릭해 보세요.</p>
+            <div class="generation-logs" id="generationLogs" style="display:none;"></div>
+          </div>
+        </div>
+
+        <div class="panel-header">
+          <h2 class="panel-title">AI 생성 수업 자료</h2>
+          <div class="panel-nav">
+            <div class="panel-nav-tabs">
+              <div class="panel-nav-tab active">홈</div>
+              <div class="panel-nav-tab">내 리소스</div>
+              <div class="panel-nav-tab">AI행정도우미</div>
+              <div class="panel-nav-tab">우리 학교</div>
+            </div>
+            <div class="panel-nav-profile">
+              <svg class="profile-avatar" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="12" fill="#E2E8F0" />
+                <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#94A3B8" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p class="panel-subtitle">원하는 자료를 클릭하여 미리보거나 정식 다운로드하세요.</p>
+
+        <div class="resources-grid">
+          
+          <!-- Card 1: 수업 PPT -->
+          <div class="resource-card ppt-card">
+            <div class="card-header">
+              <div class="card-icon">🖥️</div>
+            </div>
+            <div class="card-body">
+              <h3>수업 PPT</h3>
+              <p>수업 흐름과 핵심 내용이 포함된 수업 프레젠테이션</p>
+              <div class="card-actions" style="display:flex; flex-direction:column; gap:6px; width:100%;">
+                <button type="button" class="btn-card btn-ppt-view" onclick="openPreview('ppt')">📂 미리보기</button>
+                <button type="button" class="btn-card btn-ppt" onclick="triggerSignup('수업 PPT')">📥 다운로드</button>
               </div>
             </div>
+          </div>
 
-            <div class="panel-header">
-              <h2 class="panel-title">AI 생성 수업 자료</h2>
-              <div class="panel-nav">
-                <div class="panel-nav-tabs">
-                  <div class="panel-nav-tab active">홈</div>
-                  <div class="panel-nav-tab">내 리소스</div>
-                  <div class="panel-nav-tab">AI행정도우미</div>
-                  <div class="panel-nav-tab">우리 학교</div>
-                </div>
-                <div class="panel-nav-profile">
-                  <svg class="profile-avatar" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="12" fill="#E2E8F0" />
-                    <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#94A3B8" />
-                  </svg>
-                </div>
-              </div>
+          <!-- Card 2: 평가 루브릭 -->
+          <div class="resource-card eval-card">
+            <div class="card-header">
+              <div class="card-icon">📋</div>
             </div>
-            <p class="panel-subtitle">원하는 자료를 클릭하여 미리보거나 정식 다운로드하세요.</p>
-
-            <div class="resources-grid">
-              
-              <!-- Card 1: 수업 PPT -->
-              <div class="resource-card ppt-card">
-                <div class="card-header">
-                  <div class="card-icon">🖥️</div>
-                </div>
-                <div class="card-body">
-                  <h3>수업 PPT</h3>
-                  <p>수업 흐름과 핵심 내용이 포함된 수업 프레젠테이션</p>
-                  <div class="card-actions" style="display:flex; flex-direction:column; gap:6px; width:100%;">
-                    <button type="button" class="btn-card btn-ppt-view" onclick="openPreview('ppt')">📂 미리보기</button>
-                    <button type="button" class="btn-card btn-ppt" onclick="triggerSignup('수업 PPT')">📥 다운로드</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2: 평가 루브릭 -->
-              <div class="resource-card eval-card">
-                <div class="card-header">
-                  <div class="card-icon">📋</div>
-                </div>
-                <div class="card-body">
-                  <h3>평가 루브릭</h3>
-                  <p>수업 과정과 결과를 평가하기 위한 루브릭 체크리스트</p>
-                  <button type="button" class="btn-card btn-eval" onclick="openPreview('eval')">📂 미리보기</button>
-                </div>
-              </div>
+            <div class="card-body">
+              <h3>평가 루브릭</h3>
+              <p>수업 과정과 결과를 평가하기 위한 루브릭 체크리스트</p>
+              <button type="button" class="btn-card btn-eval" onclick="openPreview('eval')">📂 미리보기</button>
+            </div>
+          </div>
 
               <!-- Card 3: 지도안 -->
               <div class="resource-card guide-card">
