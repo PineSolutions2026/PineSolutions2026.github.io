@@ -106,6 +106,20 @@
     return "단원/주제 (학습 설계)";
   }
 
+  var ocrUpload = document.getElementById("ocrUpload");
+  var uploadSummary = document.getElementById("uploadSummary");
+
+  if (ocrUpload && uploadSummary) {
+    ocrUpload.addEventListener("change", function () {
+      var totalSize = 0;
+      for (var i = 0; i < ocrUpload.files.length; i++) {
+        totalSize += ocrUpload.files[i].size;
+      }
+      var sizeKB = Math.round(totalSize / 1024);
+      uploadSummary.textContent = "선택한 파일 합계: " + sizeKB + " KB";
+    });
+  }
+
   // Signup & Success Elements
   var signupModal = document.getElementById("signupModal");
   var previewModal = document.getElementById("previewModal");
