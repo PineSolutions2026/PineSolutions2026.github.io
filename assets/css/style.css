@@ -1167,18 +1167,21 @@ body.trial-page {
 }
 .step-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(280px, 320px);
-  gap: 14px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(220px, 260px);
+  grid-auto-flow: dense;
+  grid-auto-rows: minmax(0, auto);
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: start;
 }
 .step-item {
   display: grid;
-  grid-template-columns: 34px 1fr;
+  grid-template-columns: 32px 1fr;
   gap: 10px;
   align-items: flex-start;
-  padding: 14px 12px;
+  padding: 10px 12px;
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 14px;
   background: #fff;
 }
 .step-item::after {
@@ -1186,10 +1189,12 @@ body.trial-page {
 }
 .step-item.last-step {
   grid-column: 5;
-  grid-row: span 2;
+  grid-row: 1 / span 2;
+  padding: 10px;
 }
 .step-item.generate-step {
   grid-column: 5;
+  grid-row: 3;
   display: flex;
   align-items: flex-end;
   padding: 0;
@@ -1198,7 +1203,7 @@ body.trial-page {
 }
 .step-item.generate-step .btn-generate {
   width: 100%;
-  padding: 14px 0;
+  padding: 12px 0;
   margin: 0;
   border-radius: 14px;
   box-shadow: none;
@@ -1213,7 +1218,7 @@ body.trial-page {
     grid-row: auto;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .step-list {
     grid-template-columns: 1fr;
   }
@@ -1226,23 +1231,22 @@ body.trial-page {
 }
 
 .material-upload-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  gap: 10px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 14px;
+  border-radius: 14px;
+  padding: 12px;
   background: #fff;
 }
 .upload-dropzone {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 12px;
   border-radius: 14px;
   border: 1px dashed var(--border);
   cursor: pointer;
-  text-align: left;
+  text-align: center;
   color: var(--ink);
   background: transparent;
 }
@@ -1250,7 +1254,7 @@ body.trial-page {
   background: rgba(156, 96, 224, 0.04);
 }
 .compact-dropzone .upload-icon {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 .upload-dropzone strong {
   display: block;
@@ -1258,20 +1262,20 @@ body.trial-page {
   color: var(--purple-950);
 }
 .upload-dropzone p {
-  margin: 4px 0 0;
-  font-size: 0.88rem;
+  margin: 0;
+  font-size: 0.85rem;
   line-height: 1.4;
   color: var(--ink-soft);
 }
 .upload-specs {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  font-size: 0.86rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  font-size: 0.82rem;
   color: var(--ink-soft);
 }
 .upload-specs div {
-  padding: 10px 12px;
+  padding: 8px 10px;
   border-radius: 12px;
   background: #faf7ff;
 }
