@@ -1167,18 +1167,18 @@ body.trial-page {
 }
 .step-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(360px, 400px);
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(280px, 320px);
+  gap: 14px;
+  margin-bottom: 20px;
 }
 .step-item {
   display: grid;
   grid-template-columns: 34px 1fr;
-  gap: 12px;
+  gap: 10px;
   align-items: flex-start;
-  padding: 16px 14px;
+  padding: 14px 12px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: 18px;
   background: #fff;
 }
 .step-item::after {
@@ -1188,11 +1188,27 @@ body.trial-page {
   grid-column: 5;
   grid-row: span 2;
 }
+.step-item.generate-step {
+  grid-column: 5;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.step-item.generate-step .btn-generate {
+  width: 100%;
+  padding: 14px 0;
+  margin: 0;
+  border-radius: 14px;
+  box-shadow: none;
+}
 @media (max-width: 1200px) {
   .step-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .step-item.last-step {
+  .step-item.last-step,
+  .step-item.generate-step {
     grid-column: span 2;
     grid-row: auto;
   }
@@ -1201,10 +1217,63 @@ body.trial-page {
   .step-list {
     grid-template-columns: 1fr;
   }
-  .step-item.last-step {
+  .step-item.last-step,
+  .step-item.generate-step {
     grid-column: auto;
     grid-row: auto;
+    width: 100%;
   }
+}
+
+.material-upload-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  background: #fff;
+}
+.upload-dropzone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px dashed var(--border);
+  cursor: pointer;
+  text-align: left;
+  color: var(--ink);
+  background: transparent;
+}
+.upload-dropzone:hover {
+  background: rgba(156, 96, 224, 0.04);
+}
+.compact-dropzone .upload-icon {
+  font-size: 1.4rem;
+}
+.upload-dropzone strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--purple-950);
+}
+.upload-dropzone p {
+  margin: 4px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.upload-specs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+.upload-specs div {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #faf7ff;
 }
 .step-num {
   position: relative;
