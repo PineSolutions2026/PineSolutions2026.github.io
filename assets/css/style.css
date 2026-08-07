@@ -1139,15 +1139,14 @@ body.trial-page {
 
 .trial-grid {
   display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 28px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   align-items: stretch;
 }
 .right-column {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  justify-content: space-between;
 }
 @media (max-width: 1024px) {
   .trial-grid {
@@ -1156,12 +1155,9 @@ body.trial-page {
   .step-list {
     grid-template-columns: 1fr;
   }
-  .step-item.last-step {
-    grid-column: auto;
-  }
 }
 
-/* Planner Panel (Left) */
+/* Planner Panel (Full width) */
 .planner-panel {
   background: #fff;
   border: 1px solid var(--border);
@@ -1171,13 +1167,14 @@ body.trial-page {
 }
 .step-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
   margin-bottom: 24px;
 }
 .step-item {
-  display: flex;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
   align-items: flex-start;
   padding: 16px 14px;
   border: 1px solid var(--border);
@@ -1188,7 +1185,7 @@ body.trial-page {
   display: none;
 }
 .step-item.last-step {
-  grid-column: span 2;
+  grid-column: auto;
 }
 .step-num {
   position: relative;
