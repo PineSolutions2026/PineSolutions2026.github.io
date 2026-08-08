@@ -2789,12 +2789,17 @@ body.trial-page {
   display: flex;
   align-items: center;
   gap: 8px;
+  background: var(--lavender-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 6px 10px;
 }
 .tts-switch {
   position: relative;
   display: inline-block;
   width: 32px;
   height: 18px;
+  flex-shrink: 0;
 }
 .tts-switch input {
   opacity: 0;
@@ -2831,16 +2836,22 @@ input:checked + .slider:before {
   font-weight: 700;
   color: var(--purple-950);
 }
+.multilingual-select-box {
+  background: var(--lavender-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 6px 10px;
+}
 .multilingual-label {
   display: block;
   font-size: 0.74rem;
   font-weight: 700;
   color: var(--purple-950);
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 .btn-accessibility {
   width: 100%;
-  padding: 4px 0;
+  padding: 6px 10px;
   background: var(--lavender-bg);
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -2848,6 +2859,7 @@ input:checked + .slider:before {
   font-weight: 700;
   color: var(--purple-950);
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 .btn-accessibility:hover {
   background: #EBF3FC;
@@ -2899,7 +2911,13 @@ input:checked + .slider:before {
   background: #154ab3;
 }
 
-/* Student Subject Select Buttons in Ask Teacher Card */
+/* Student Subject Select Box in Ask Teacher Card */
+.subject-select-box {
+  background: var(--lavender-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 6px 10px;
+}
 .subject-select-badge {
   font-size: 0.72rem;
   font-weight: 700;
