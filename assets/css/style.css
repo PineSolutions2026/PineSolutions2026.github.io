@@ -2748,6 +2748,19 @@ body.trial-page {
   font-weight: 800;
   box-shadow: 0 3px 6px rgba(30,96,214,0.25);
 }
+.report-detail-pills {
+  display: flex;
+  gap: 6px;
+  margin-top: 5px;
+}
+.report-pill {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #0F5A47;
+  background: #E2F0D9;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
 
 /* Activity Log Card */
 .activity-log-desc {
@@ -2758,6 +2771,20 @@ body.trial-page {
   background: var(--lavender-bg);
   padding: 5px 8px;
   border-radius: 5px;
+}
+.activity-stat-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.activity-stat-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #1E60D6;
+  background: #EBF3FC;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #D0E3FA;
 }
 
 /* Teacher Feedback */
