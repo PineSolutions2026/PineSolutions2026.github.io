@@ -131,22 +131,91 @@
   var trialSubtitle = document.getElementById("trialSubtitle");
   var signupTitle = document.getElementById("signupTitle");
 
-  if (trialRoleBadge) {
-    trialRoleBadge.textContent = roleLabel + " 체험";
-  }
-  if (trialTitle) {
-    trialTitle.textContent = selectedRole === "student"
-      ? "AI로 더 똑똑하게 배우는 수업 체험"
-      : "나만의 맞춤형 AI 융합 수업 만들기";
-  }
-  if (trialSubtitle) {
-    trialSubtitle.textContent = selectedRole === "student"
-      ? "학생이 직접 체험할 수 있는 AI 기반 학습 활동과 자료를 미리 확인해 보세요."
-      : "교사의 수업 준비를 돕는 AI 수업 패키지를 바로 체험해 보세요.";
+  var teacherView = document.getElementById("teacherView");
+  var studentView = document.getElementById("studentView");
+  var studentBanner = document.getElementById("studentBanner");
+  var studentInfoBar = document.getElementById("studentInfoBar");
+  var pillTeacher = document.getElementById("pillTeacher");
+  var pillStudent = document.getElementById("pillStudent");
+
+  if (selectedRole === "student") {
+    if (teacherView) teacherView.style.display = "none";
+    if (studentView) studentView.style.display = "grid";
+    if (studentBanner) studentBanner.style.display = "block";
+    if (studentInfoBar) studentInfoBar.style.display = "flex";
+    if (pillStudent) pillStudent.classList.add("active");
+    if (pillTeacher) pillTeacher.classList.remove("active");
+
+    if (trialRoleBadge) {
+      trialRoleBadge.textContent = "학생용 체험";
+      trialRoleBadge.classList.add("student-theme");
+    }
+    if (trialTitle) trialTitle.textContent = "PINE Model for Learners: 맞춤형 학습 관리 시스템";
+    if (trialSubtitle) trialSubtitle.textContent = "학생이 직접 체득하고 성취도를 실시간 확인하는 AI 기반 학습 관리 데모";
+  } else {
+    if (teacherView) teacherView.style.display = "grid";
+    if (studentView) studentView.style.display = "none";
+    if (studentBanner) studentBanner.style.display = "none";
+    if (studentInfoBar) studentInfoBar.style.display = "none";
+    if (pillTeacher) pillTeacher.classList.add("active");
+    if (pillStudent) pillStudent.classList.remove("active");
+
+    if (trialRoleBadge) {
+      trialRoleBadge.textContent = "교사용 체험";
+      trialRoleBadge.classList.remove("student-theme");
+    }
+    if (trialTitle) trialTitle.textContent = "나만의 맞춤형 AI 융합 수업 만들기";
+    if (trialSubtitle) trialSubtitle.textContent = "교사의 수업 준비를 돕는 AI 수업 패키지를 바로 체험해 보세요.";
   }
   if (signupTitle) {
     signupTitle.textContent = "PINE Model " + roleLabel + " 무료 체험 신청";
   }
+
+  // Student Interactive Handlers
+  window.startStudentTask = function(taskName) {
+    alert("📝 '" + taskName + "' 과제 수행 화면으로 이동합니다.\n(PINE 학생용 학습 모듈 연동 준비 중)");
+  };
+
+  window.startStudentQuiz = function(quizName) {
+    alert("📊 '" + quizName + "' 퀴즈를 시작합니다.\n(AI 기반 과정 중심 평가 문항 제공)");
+  };
+
+  window.viewQuizResult = function(quizName) {
+    alert("📈 '" + quizName + "' 평가 결과 및 AI 오답 노트 리포트를 조회합니다.");
+  };
+
+  window.toggleTTS = function(checkbox) {
+    if (checkbox.checked) {
+      alert("🔊 음성 읽기(TTS) 기능이 켜졌습니다. 지문 및 문제 읽기 서비스를 지원합니다.");
+    } else {
+      alert("🔇 음성 읽기(TTS) 기능이 꺼졌습니다.");
+    }
+  };
+
+  window.changeLanguage = function(langCode) {
+    var langNames = {
+      "ko": "한국어",
+      "vi": "베트남어 (Tiếng Việt)",
+      "en": "영어 (English)",
+      "zh": "중국어 (中文)",
+      "ja": "일본어 (日本語)"
+    };
+    alert("🌐 다국어 번역 언어가 '" + (langNames[langCode] || langCode) + "'(으)로 설정되었습니다.");
+  };
+
+  window.toggleFontAdjust = function() {
+    alert("🎨 폰트 크기 및 고대비 색상 모드를 조정하는 접근성 도구가 켜집니다.");
+  };
+
+  window.sendStudentQuestion = function() {
+    var input = document.getElementById("studentQuestionInput");
+    if (!input || !input.value.trim()) {
+      alert("선생님께 전달할 질문 내용을 입력해 주세요.");
+      return;
+    }
+    alert("💬 질문이 성공적으로 전송되었습니다!\n'선생님 피드백 및 답변 알림'으로 전송됩니다.");
+    input.value = "";
+  };
 
   // 1. AI Type Selection Toggle
   var aiTypeSelect = document.getElementById("aiTypeSelect");
