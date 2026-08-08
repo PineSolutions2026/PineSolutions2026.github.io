@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.5.5">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5.6">
 </head>
 
 <body class="trial-page">
@@ -555,16 +555,21 @@
           <div class="student-card ask-teacher-card">
             <div class="card-title-row">
               <h3>🙋 선생님께 질문하기</h3>
-              <span class="subject-select-badge">교과 선택</span>
             </div>
-            <div class="subject-button-group">
-              <button type="button" class="subject-btn active" onclick="selectStudentSubject(this, '공통국어2')">공통국어2</button>
-              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '공통영어2')">공통영어2</button>
-              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '공통수학2')">공통수학2</button>
-              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '한국사2')">한국사2</button>
-              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '통합사회2')">통합사회2</button>
-              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '통합과학2')">통합과학2</button>
-              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '과학탐구실험2')">과학탐구실험2</button>
+            <div class="subject-select-box" style="margin-bottom: 6px;">
+              <span class="subject-select-label" style="font-size: 0.72rem; font-weight: 700; color: var(--ink-soft); display: block; margin-bottom: 3px;">교과 선택</span>
+              <div class="select-wrapper">
+                <select id="studentSubjectSelect" onchange="selectStudentSubjectDropdown(this.value)">
+                  <option value="" disabled>교과 선택 (Choose Subject)</option>
+                  <option value="공통국어2" selected>공통국어2</option>
+                  <option value="공통영어2">공통영어2</option>
+                  <option value="공통수학2">공통수학2</option>
+                  <option value="한국사2">한국사2</option>
+                  <option value="통합사회2">통합사회2</option>
+                  <option value="통합과학2">통합과학2</option>
+                  <option value="과학탐구실험2">과학탐구실험2</option>
+                </select>
+              </div>
             </div>
             <div class="ask-form">
               <textarea id="studentQuestionInput" placeholder="선생님께 질문하기..." rows="2"></textarea>
@@ -685,7 +690,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.5.5"></script>
+  <script src="assets/js/trial.js?v=1.5.6"></script>
 </body>
 
 </html>

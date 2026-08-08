@@ -210,12 +210,8 @@
   };
 
   var currentStudentSubject = "공통국어2";
-  window.selectStudentSubject = function(btn, subjectName) {
+  window.selectStudentSubjectDropdown = function(subjectName) {
     currentStudentSubject = subjectName;
-    var btns = document.querySelectorAll(".subject-btn");
-    btns.forEach(function (b) { b.classList.remove("active"); });
-    if (btn) btn.classList.add("active");
-
     var input = document.getElementById("studentQuestionInput");
     if (input) {
       input.placeholder = "[" + subjectName + "] 선생님께 질문하기...";
