@@ -9,45 +9,42 @@
   var roleLabel = selectedRole === "student" ? "학생용" : "교사용";
 
   var topicOptions = {
-    "수학": [
-      { value: "공통수학 1", text: "공통수학 1 (준비 중)", disabled: true },
-      { value: "공통수학 2", text: "공통수학 2", selected: true },
-      { value: "대수", text: "대수 (준비 중)", disabled: true },
-      { value: "미적분 I", text: "미적분 I (준비 중)", disabled: true },
-      { value: "확률과 통계", text: "확률과 통계 (준비 중)", disabled: true },
-      { value: "미적분 II", text: "미적분 II (준비 중)", disabled: true },
-      { value: "기하", text: "기하 (준비 중)", disabled: true }
+    "공통수학1": [
+      { value: "다항식과 연산", text: "다항식과 연산", selected: true },
+      { value: "방정식과 부등식", text: "방정식과 부등식 (준비 중)", disabled: true },
+      { value: "도형의 방정식", text: "도형의 방정식 (준비 중)", disabled: true },
+      { value: "집합과 명제", text: "집합과 명제 (준비 중)", disabled: true },
+      { value: "함수와 그래프", text: "함수와 그래프 (준비 중)", disabled: true }
     ],
-    "영어": [
-      { value: "공통영어 1", text: "공통영어 1 (준비 중)", disabled: true },
-      { value: "공통영어 2", text: "공통영어 2", disabled: false, selected: true },
-      { value: "기본영어 1", text: "기본영어 1 (준비 중)", disabled: true },
-      { value: "기본영어 2", text: "기본영어 2 (준비 중)", disabled: true },
-      { value: "영어 I", text: "영어 I (준비 중)", disabled: true },
-      { value: "영어 II", text: "영어 II (준비 중)", disabled: true },
-      { value: "독해와 작문", text: "독해와 작문 (준비 중)", disabled: true },
-      { value: "영미문학읽기", text: "영미문학읽기 (준비 중)", disabled: true },
-      { value: "영어 발표와 토론", text: "영어 발표와 토론 (준비 중)", disabled: true },
-      { value: "직무 영어", text: "직무 영어 (준비 중)", disabled: true },
-      { value: "심화 영어", text: "심화 영어 (준비 중)", disabled: true },
-      { value: "실생활 영어 회화", text: "실생활 영어 회화 (준비 중)", disabled: true },
-      { value: "미디어 영어", text: "미디어 영어 (준비 중)", disabled: true },
-      { value: "세계 문화와 영어", text: "세계 문화와 영어 (준비 중)", disabled: true }
+    "공통국어1": [
+      { value: "문학과 매체", text: "문학과 매체 (준비 중)", disabled: true }
     ],
-    "국어": [
-      { value: "문법", text: "문법 (준비 중)", disabled: true },
-      { value: "독서", text: "독서 (준비 중)", disabled: true },
-      { value: "작문", text: "작문 (준비 중)", disabled: true }
+    "공통영어1": [
+      { value: "공통영어 1", text: "공통영어 1 (준비 중)", disabled: true }
     ],
-    "과학": [
-      { value: "물리", text: "물리 (준비 중)", disabled: true },
-      { value: "화학", text: "화학 (준비 중)", disabled: true },
-      { value: "생명과학", text: "생명과학 (준비 중)", disabled: true }
+    "통합사회1": [
+      { value: "사회 탐구", text: "사회 탐구 (준비 중)", disabled: true }
     ],
-    "사회": [
-      { value: "역사", text: "역사 (준비 중)", disabled: true },
-      { value: "지리", text: "지리 (준비 중)", disabled: true },
-      { value: "윤리", text: "윤리 (준비 중)", disabled: true }
+    "통합과학1": [
+      { value: "자연과 물질", text: "자연과 물질 (준비 중)", disabled: true }
+    ],
+    "과학탐구실험1": [
+      { value: "탐구 실험", text: "탐구 실험 (준비 중)", disabled: true }
+    ],
+    "음악": [
+      { value: "음악 감상과 표현", text: "음악 감상과 표현 (준비 중)", disabled: true }
+    ],
+    "미술": [
+      { value: "미술과 창작", text: "미술과 창작 (준비 중)", disabled: true }
+    ],
+    "체육": [
+      { value: "운동과 건강", text: "운동과 건강 (준비 중)", disabled: true }
+    ],
+    "정보": [
+      { value: "정보와 컴퓨터", text: "정보와 컴퓨터 (준비 중)", disabled: true }
+    ],
+    "진로와 직업": [
+      { value: "진로 탐색", text: "진로 탐색 (준비 중)", disabled: true }
     ]
   };
 

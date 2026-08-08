@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.4.8">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5.0">
 </head>
 
 <body class="trial-page">
@@ -89,11 +89,17 @@
               </div>
               <div class="select-wrapper">
                 <select id="subjectSelect">
-                  <option value="국어" disabled>국어 (준비 중)</option>
-                  <option value="영어">영어</option>
-                  <option value="수학" selected>수학</option>
-                  <option value="과학" disabled>과학 (준비 중)</option>
-                  <option value="사회" disabled>사회 (준비 중)</option>
+                  <option value="공통수학1" selected>공통수학1</option>
+                  <option value="공통국어1" disabled>공통국어1 (준비 중)</option>
+                  <option value="공통영어1" disabled>공통영어1 (준비 중)</option>
+                  <option value="통합사회1" disabled>통합사회1 (준비 중)</option>
+                  <option value="통합과학1" disabled>통합과학1 (준비 중)</option>
+                  <option value="과학탐구실험1" disabled>과학탐구실험1 (준비 중)</option>
+                  <option value="음악" disabled>음악 (준비 중)</option>
+                  <option value="미술" disabled>미술 (준비 중)</option>
+                  <option value="체육" disabled>체육 (준비 중)</option>
+                  <option value="정보" disabled>정보 (준비 중)</option>
+                  <option value="진로와 직업" disabled>진로와 직업 (준비 중)</option>
                 </select>
               </div>
             </div>
@@ -341,7 +347,7 @@
             <div class="task-list">
               <div class="task-item">
                 <div class="task-header">
-                  <strong class="task-name">수학 과제 - 문제 풀이 및 제출</strong>
+                  <strong class="task-name">공통수학1 과제 - 문제 풀이 및 제출</strong>
                   <span class="task-deadline">마감 2026.04.15</span>
                 </div>
                 <div class="task-progress-bar-wrap">
@@ -349,13 +355,13 @@
                 </div>
                 <div class="task-meta-row">
                   <span class="task-status-text">진행률 50%</span>
-                  <button type="button" class="btn-task btn-action-primary" onclick="startStudentTask('수학 과제')">과제 수행하기</button>
+                  <button type="button" class="btn-task btn-action-primary" onclick="startStudentTask('공통수학1 과제')">과제 수행하기</button>
                 </div>
               </div>
 
               <div class="task-item">
                 <div class="task-header">
-                  <strong class="task-name">과학 보고서 - 탐구 및 실험</strong>
+                  <strong class="task-name">통합과학1 보고서 - 탐구 및 실험</strong>
                   <span class="task-deadline">마감 2026.04.22</span>
                 </div>
                 <div class="task-progress-bar-wrap">
@@ -363,31 +369,31 @@
                 </div>
                 <div class="task-meta-row">
                   <span class="task-status-text">진행률 20%</span>
-                  <button type="button" class="btn-task btn-action-secondary" onclick="startStudentTask('과학 보고서')">이어서 하기</button>
+                  <button type="button" class="btn-task btn-action-secondary" onclick="startStudentTask('통합과학1 보고서')">이어서 하기</button>
                 </div>
               </div>
 
               <div class="task-item">
                 <div class="task-header">
-                  <strong class="task-name">과학 탐구 토론회 - 조별 발표</strong>
+                  <strong class="task-name">통합과학1 탐구 토론회 - 조별 발표</strong>
                   <span class="task-badge-role">역할: 데이터 분석</span>
                 </div>
                 <div class="task-meta-row">
                   <span class="task-status-text">모둠 발표 준비</span>
-                  <button type="button" class="btn-task btn-action-primary" onclick="startStudentTask('과학 탐구 토론회')">과제/실험 시작하기</button>
+                  <button type="button" class="btn-task btn-action-primary" onclick="startStudentTask('통합과학1 탐구 토론회')">과제/실험 시작하기</button>
                 </div>
               </div>
 
               <div class="task-item">
                 <div class="task-header">
-                  <strong class="task-name">사회 UCC 제작 - 대본 작성 및 촬영</strong>
+                  <strong class="task-name">통합사회1 UCC 제작 - 대본 작성 및 촬영</strong>
                   <span class="task-badge-role">역할: 슬라이드 디자인</span>
                 </div>
                 <div class="task-meta-row">
                   <span class="task-status-text">영상 제작 단계</span>
                   <div class="btn-group-sm">
-                    <button type="button" class="btn-task btn-action-secondary" onclick="startStudentTask('사회 UCC 제작 대본')">이어서 하기</button>
-                    <button type="button" class="btn-task btn-action-primary" onclick="startStudentTask('사회 UCC 제작 작성')">작성하기</button>
+                    <button type="button" class="btn-task btn-action-secondary" onclick="startStudentTask('통합사회1 UCC 제작 대본')">이어서 하기</button>
+                    <button type="button" class="btn-task btn-action-primary" onclick="startStudentTask('통합사회1 UCC 제작 작성')">작성하기</button>
                   </div>
                 </div>
               </div>
@@ -402,24 +408,24 @@
             <div class="quiz-list">
               <div class="quiz-item">
                 <div class="quiz-detail">
-                  <strong>사회 단원 퀴즈</strong>
+                  <strong>통합사회1 단원 퀴즈</strong>
                   <span>진행 전 · 10분 소요</span>
                 </div>
-                <button type="button" class="btn-quiz btn-quiz-active" onclick="startStudentQuiz('사회 단원 퀴즈')">퀴즈 시작하기</button>
+                <button type="button" class="btn-quiz btn-quiz-active" onclick="startStudentQuiz('통합사회1 단원 퀴즈')">퀴즈 시작하기</button>
               </div>
               <div class="quiz-item">
                 <div class="quiz-detail">
-                  <strong>수학 성취도 평가</strong>
+                  <strong>공통수학1 성취도 평가</strong>
                   <span>마감 전 · 20분 소요</span>
                 </div>
-                <button type="button" class="btn-quiz btn-quiz-active" onclick="startStudentQuiz('수학 성취도 평가')">평가 수행하기</button>
+                <button type="button" class="btn-quiz btn-quiz-active" onclick="startStudentQuiz('공통수학1 성취도 평가')">평가 수행하기</button>
               </div>
               <div class="quiz-item">
                 <div class="quiz-detail">
-                  <strong>수학 성취도 평가 2</strong>
+                  <strong>공통수학1 성취도 평가 2</strong>
                   <span>제출 완료 (88점)</span>
                 </div>
-                <button type="button" class="btn-quiz btn-quiz-done" onclick="viewQuizResult('수학 성취도 평가 2')">결과 보기</button>
+                <button type="button" class="btn-quiz btn-quiz-done" onclick="viewQuizResult('공통수학1 성취도 평가 2')">결과 보기</button>
               </div>
             </div>
           </div>
@@ -437,7 +443,7 @@
             <div class="achievement-bars-list">
               <div class="achieve-row">
                 <div class="achieve-label">
-                  <strong>국어 (문학/비문학)</strong>
+                  <strong>공통국어1</strong>
                 </div>
                 <div class="achieve-bar-wrap">
                   <div class="achieve-fill bg-kor" style="width: 80%;"></div>
@@ -446,7 +452,7 @@
               </div>
               <div class="achieve-row">
                 <div class="achieve-label">
-                  <strong>영어 (공통)</strong>
+                  <strong>공통영어1</strong>
                 </div>
                 <div class="achieve-bar-wrap">
                   <div class="achieve-fill bg-eng" style="width: 80%;"></div>
@@ -455,7 +461,7 @@
               </div>
               <div class="achieve-row">
                 <div class="achieve-label">
-                  <strong>수학</strong>
+                  <strong>공통수학1</strong>
                 </div>
                 <div class="achieve-bar-wrap">
                   <div class="achieve-fill bg-math" style="width: 75%;"></div>
@@ -464,7 +470,7 @@
               </div>
               <div class="achieve-row">
                 <div class="achieve-label">
-                  <strong>과학</strong>
+                  <strong>통합과학1</strong>
                 </div>
                 <div class="achieve-bar-wrap">
                   <div class="achieve-fill bg-sci" style="width: 60%;"></div>
@@ -518,13 +524,13 @@
             </div>
             <div class="feedback-bubble-list">
               <div class="feedback-bubble">
-                <p><strong>수학:</strong> 방정식 단원 문제 풀이가 아주 훌륭합니다! 5번 문항을 확인해 보세요.</p>
+                <p><strong>공통수학1:</strong> 방정식 단원 문제 풀이가 아주 훌륭합니다! 5번 문항을 확인해 보세요.</p>
               </div>
               <div class="feedback-bubble">
-                <p><strong>과학:</strong> 가속도 법칙 실험 보고서의 오차 원인 분석을 더 구체적으로 작성해 보세요.</p>
+                <p><strong>통합과학1:</strong> 가속도 법칙 실험 보고서의 오차 원인 분석을 더 구체적으로 작성해 보세요.</p>
               </div>
               <div class="feedback-bubble">
-                <p><strong>영어:</strong> Essay 2차 제출본의 주제문(Topic Sentence) 연결이 매우 우수합니다!</p>
+                <p><strong>공통영어1:</strong> Essay 2차 제출본의 주제문(Topic Sentence) 연결이 매우 우수합니다!</p>
               </div>
             </div>
           </div>
@@ -614,11 +620,17 @@
           <div class="select-wrapper">
             <select id="userSubject" required>
               <option value="" disabled selected>담당 과목을 선택해 주세요</option>
-              <option value="국어">국어</option>
-              <option value="영어">영어</option>
-              <option value="수학">수학</option>
-              <option value="사회">사회</option>
-              <option value="과학">과학</option>
+              <option value="공통국어1">공통국어1</option>
+              <option value="공통수학1">공통수학1</option>
+              <option value="공통영어1">공통영어1</option>
+              <option value="통합사회1">통합사회1</option>
+              <option value="통합과학1">통합과학1</option>
+              <option value="과학탐구실험1">과학탐구실험1</option>
+              <option value="음악">음악</option>
+              <option value="미술">미술</option>
+              <option value="체육">체육</option>
+              <option value="정보">정보</option>
+              <option value="진로와 직업">진로와 직업</option>
               <option value="기타">기타</option>
             </select>
           </div>
@@ -671,7 +683,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.4.8"></script>
+  <script src="assets/js/trial.js?v=1.5.0"></script>
 </body>
 
 </html>
