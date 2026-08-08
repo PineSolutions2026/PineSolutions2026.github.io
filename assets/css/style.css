@@ -2430,8 +2430,8 @@ body.trial-page {
 .student-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 10px;
   height: 100%;
 }
 
