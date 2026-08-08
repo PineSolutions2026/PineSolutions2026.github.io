@@ -2897,4 +2897,83 @@ input:checked + .slider:before {
   background: #154ab3;
 }
 
+/* Student Subject Select Buttons in Ask Teacher Card */
+.subject-select-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #1E60D6;
+  background: #EBF3FC;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #D0E3FA;
+}
+.subject-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 6px 0 8px 0;
+}
+.subject-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #475569;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.subject-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+.subject-btn.active {
+  background: #1E60D6;
+  color: #FFFFFF;
+  border-color: #1E60D6;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(30, 96, 214, 0.2);
+}
+
+/* Circular Floating AI Analysis Button for Student View */
+.student-ai-analysis-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED 0%, #1E60D6 100%);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.45);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.student-ai-analysis-btn:hover {
+  transform: scale(1.1) translateY(-4px);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.6);
+}
+.student-ai-analysis-btn:active {
+  transform: scale(0.96);
+}
+.student-ai-analysis-btn .ai-btn-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.student-ai-analysis-btn .ai-btn-label {
+  font-size: 0.58rem;
+  font-weight: 800;
+  margin-top: 2px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.3px;
+}
+
 

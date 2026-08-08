@@ -127,6 +127,7 @@
   var previewModal = document.getElementById("previewModal");
   var successModal = document.getElementById("successModal");
   var signupForm = document.getElementById("signupForm");
+  var studentAiBtn = document.getElementById("studentAiAnalysisBtn");
   var selectedResourceLabel = document.getElementById("selectedResourceLabel");
   var trialRoleBadge = document.getElementById("trialRoleBadge");
   var trialTitle = document.getElementById("trialTitle");
@@ -145,6 +146,7 @@
     if (studentView) studentView.style.display = "grid";
     if (studentBanner) studentBanner.style.display = "block";
     if (studentInfoBar) studentInfoBar.style.display = "flex";
+    if (studentAiBtn) studentAiBtn.style.display = "flex";
 
     if (trialRoleBadge) {
       trialRoleBadge.textContent = "학생용 체험";
@@ -207,14 +209,35 @@
     alert("🎨 폰트 크기 및 고대비 색상 모드를 조정하는 접근성 도구가 켜집니다.");
   };
 
+  var currentStudentSubject = "공통국어2";
+  window.selectStudentSubject = function(btn, subjectName) {
+    currentStudentSubject = subjectName;
+    var btns = document.querySelectorAll(".subject-btn");
+    btns.forEach(function (b) { b.classList.remove("active"); });
+    if (btn) btn.classList.add("active");
+
+    var input = document.getElementById("studentQuestionInput");
+    if (input) {
+      input.placeholder = "[" + subjectName + "] 선생님께 질문하기...";
+    }
+  };
+
   window.sendStudentQuestion = function() {
     var input = document.getElementById("studentQuestionInput");
     if (!input || !input.value.trim()) {
       alert("선생님께 전달할 질문 내용을 입력해 주세요.");
       return;
     }
-    alert("💬 질문이 성공적으로 전송되었습니다!\n'선생님 피드백 및 답변 알림'으로 전송됩니다.");
+    alert("💬 [" + currentStudentSubject + "] 질문이 성공적으로 전송되었습니다!\n'선생님 피드백 및 답변 알림'으로 전송됩니다.");
     input.value = "";
+  };
+
+  window.runStudentAiAnalysis = function() {
+    alert("🤖 [PINE AI 학습 분석 리포트]\n\n" +
+          "• 선택된 주력 과목: " + currentStudentSubject + "\n" +
+          "• 종합 학업 성취도: 78% (상위 15% 진입 가능성)\n" +
+          "• 취약 단원 분석: 핵심 개념 정리 문항 5건 및 맞춤 복습 추천\n\n" +
+          "AI 학습 진단 결과를 바탕으로 한 맞춤형 심화 학습 가이드가 제공됩니다!");
   };
 
   // 1. AI Type Selection Toggle

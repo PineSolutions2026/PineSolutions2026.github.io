@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.5.4">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5.5">
 </head>
 
 <body class="trial-page">
@@ -46,7 +46,7 @@
         <div class="student-info-bar" id="studentInfoBar" style="display:none;">
           <div class="info-item"><span class="info-label">이름:</span> <strong class="info-val">홍길동</strong></div>
           <div class="info-divider"></div>
-          <div class="info-item"><span class="info-label">학번:</span> <strong class="info-val">10101</strong></div>
+          <div class="info-item"><span class="info-label">학번:</span> <strong class="info-val">20270116</strong></div>
           <div class="info-divider"></div>
           <div class="info-item"><span class="info-label">학교:</span> <strong class="info-val">서울미래고등학교</strong></div>
           <div class="info-divider"></div>
@@ -353,7 +353,7 @@
               <div class="task-item">
                 <div class="task-header">
                   <strong class="task-name">공통수학1 과제 - 문제 풀이 및 제출</strong>
-                  <span class="task-deadline">마감 2026.04.15</span>
+                  <span class="task-deadline">마감 2027.10.15</span>
                 </div>
                 <div class="task-progress-bar-wrap">
                   <div class="progress-bar-fill" style="width: 50%;"></div>
@@ -367,7 +367,7 @@
               <div class="task-item">
                 <div class="task-header">
                   <strong class="task-name">통합과학1 보고서 - 탐구 및 실험</strong>
-                  <span class="task-deadline">마감 2026.04.22</span>
+                  <span class="task-deadline">마감 2027.10.22</span>
                 </div>
                 <div class="task-progress-bar-wrap">
                   <div class="progress-bar-fill" style="width: 20%;"></div>
@@ -551,10 +551,20 @@
             </div>
           </div>
 
-          <!-- 3. 선생님께 질문하기 -->
+          <!-- 3. 선생님께 질문하기 및 교과 선택 -->
           <div class="student-card ask-teacher-card">
             <div class="card-title-row">
               <h3>🙋 선생님께 질문하기</h3>
+              <span class="subject-select-badge">교과 선택</span>
+            </div>
+            <div class="subject-button-group">
+              <button type="button" class="subject-btn active" onclick="selectStudentSubject(this, '공통국어2')">공통국어2</button>
+              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '공통영어2')">공통영어2</button>
+              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '공통수학2')">공통수학2</button>
+              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '한국사2')">한국사2</button>
+              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '통합사회2')">통합사회2</button>
+              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '통합과학2')">통합과학2</button>
+              <button type="button" class="subject-btn" onclick="selectStudentSubject(this, '과학탐구실험2')">과학탐구실험2</button>
             </div>
             <div class="ask-form">
               <textarea id="studentQuestionInput" placeholder="선생님께 질문하기..." rows="2"></textarea>
@@ -567,6 +577,12 @@
         </div>
 
       </div>
+
+      <!-- Floating Circular AI Analysis Button for Student View -->
+      <button type="button" id="studentAiAnalysisBtn" class="student-ai-analysis-btn" onclick="runStudentAiAnalysis()" title="AI로 학습 분석하기" style="display:none;">
+        <span class="ai-btn-icon">🤖</span>
+        <span class="ai-btn-label">AI 학습 분석</span>
+      </button>
 
         </div>
       </div>
@@ -669,7 +685,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.5.4"></script>
+  <script src="assets/js/trial.js?v=1.5.5"></script>
 </body>
 
 </html>
