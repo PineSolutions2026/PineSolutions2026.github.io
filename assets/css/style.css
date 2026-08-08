@@ -435,6 +435,7 @@ br.only-mobile{ display: none; content: ""; }
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
   pointer-events: none;
@@ -1232,29 +1233,30 @@ body.trial-page {
 .material-upload-card {
   display: grid;
   gap: 8px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 10px;
-  background: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
 }
 .upload-dropzone {
-  display: grid;
-  grid-template-columns: 24px 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 12px;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 14px;
   border: 1px solid var(--border);
   cursor: pointer;
-  text-align: left;
+  text-align: center;
   color: var(--ink);
-  background: #faf7ff;
+  background: #fff;
 }
 .upload-dropzone:hover {
-  background: #f4efff;
+  background: rgba(238, 233, 255, 0.8);
 }
 .compact-dropzone .upload-icon {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 .upload-dropzone strong {
   display: block;
@@ -1268,7 +1270,8 @@ body.trial-page {
   color: var(--ink-soft);
 }
 .upload-specs {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 6px;
   font-size: 0.82rem;
   color: var(--ink-soft);
@@ -1276,7 +1279,7 @@ body.trial-page {
 .upload-specs div {
   padding: 8px 10px;
   border-radius: 12px;
-  background: #faf7ff;
+  background: #f6f3ff;
 }
 .step-num {
   position: relative;
@@ -1401,22 +1404,14 @@ body.trial-page {
    color: var(--ink-soft);
  }
  .upload-specs {
-   display: grid;
+   display: none !important;
    grid-template-columns: repeat(2, minmax(0, 1fr));
    gap: 10px;
-   padding: 0 4px;
-   color: var(--ink-soft);
-   font-size: 0.92rem;
- }
- .upload-specs div {
-   background: #f6f3ff;
-   padding: 12px 14px;
-   border-radius: 12px;
- }
- .upload-summary {
-   font-size: 0.9rem;
-   color: var(--ink-soft);
-   opacity: 0.85;
+ .upload-specs,
+ .upload-specs div,
+ .upload-summary,
+ #uploadSummary {
+   display: none !important;
  }
  .planner-panel .step-hint {
    font-size: 0.9rem;
