@@ -194,11 +194,12 @@
 
   window.changeLanguage = function(langCode) {
     var langNames = {
-      "ko": "한국어",
-      "vi": "베트남어 (Tiếng Việt)",
       "en": "영어 (English)",
-      "zh": "중국어 (中文)",
-      "ja": "일본어 (日本語)"
+      "ja": "일본어 (日本語)",
+      "id": "인도네시아어 (Bahasa Indonesia)",
+      "ru": "러시아어 (Русский)",
+      "vi": "베트남어 (Tiếng Việt)",
+      "zh": "중국어 (中文)"
     };
     alert("🌐 다국어 번역 언어가 '" + (langNames[langCode] || langCode) + "'(으)로 설정되었습니다.");
   };

@@ -2411,10 +2411,10 @@ body.trial-page {
   background: #CBD5E1;
 }
 
-/* Student Grid (3 Columns) */
+/* Student Grid (3 Equal-Height Balanced Columns) */
 .student-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 0.95fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   align-items: stretch;
 }
@@ -2427,7 +2427,9 @@ body.trial-page {
 .student-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 8px;
+  height: 100%;
 }
 
 .student-card {
@@ -2824,11 +2826,12 @@ input:checked + .slider:before {
   font-weight: 700;
   color: var(--purple-950);
 }
-.multilingual-select-box .box-label {
+.multilingual-label {
   display: block;
-  font-size: 0.7rem;
-  color: var(--ink-soft);
-  margin-bottom: 2px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--purple-950);
+  margin-bottom: 3px;
 }
 .btn-accessibility {
   width: 100%;

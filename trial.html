@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.4.1">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.4.2">
 </head>
 
 <body class="trial-page">
@@ -550,10 +550,10 @@
                 <p><strong>수학:</strong> 방정식 단원 문제 풀이가 아주 훌륭합니다! 5번 문항을 확인해 보세요.</p>
               </div>
               <div class="feedback-bubble">
-                <p><strong>과학:</strong> 실험 데이터 분석 가이드라인 연계 학습 내용을 확인하세요.</p>
+                <p><strong>과학:</strong> 가속도 법칙 실험 보고서의 오차 원인 분석을 더 구체적으로 작성해 보세요.</p>
               </div>
               <div class="feedback-bubble">
-                <p><strong>국어:</strong> 에세이 문맥 연결이 매우 자연스럽습니다. 서술형 표현 보완 추천!</p>
+                <p><strong>영어:</strong> Essay 2차 제출본의 주제문(Topic Sentence) 연결이 매우 우수합니다!</p>
               </div>
             </div>
           </div>
@@ -570,14 +570,16 @@
               </div>
 
               <div class="multilingual-select-box">
-                <label for="langSelect" class="box-label">다국어 번역 언어 선택</label>
+                <span class="multilingual-label">다국어 번역 언어 선택</span>
                 <div class="select-wrapper">
                   <select id="langSelect" onchange="changeLanguage(this.value)">
-                    <option value="ko" selected>다국어 번역 언어 선택 (예: 베트남어, 영어 등)</option>
-                    <option value="vi">베트남어 (Tiếng Việt)</option>
+                    <option value="" selected disabled>언어 선택 (Choose Language)</option>
                     <option value="en">영어 (English)</option>
-                    <option value="zh">중국어 (中文)</option>
                     <option value="ja">일본어 (日本語)</option>
+                    <option value="id">인도네시아어 (Bahasa Indonesia)</option>
+                    <option value="ru">러시아어 (Русский)</option>
+                    <option value="vi">베트남어 (Tiếng Việt)</option>
+                    <option value="zh">중국어 (中文)</option>
                   </select>
                 </div>
               </div>
@@ -588,8 +590,11 @@
 
           <!-- 선생님께 질문하기 -->
           <div class="student-card ask-teacher-card">
+            <div class="card-title-row">
+              <h3>🙋 선생님께 질문하기</h3>
+            </div>
             <div class="ask-form">
-              <textarea id="studentQuestionInput" placeholder="선생님께 질문하기..." rows="3"></textarea>
+              <textarea id="studentQuestionInput" placeholder="선생님께 질문하기..." rows="2"></textarea>
               <div class="ask-submit-row">
                 <button type="button" class="btn-send-question" onclick="sendStudentQuestion()">질문 전송</button>
               </div>
@@ -599,35 +604,6 @@
         </div>
 
       </div>
-
-      <!-- Student Banner -->
-      <section class="customize-banner student-banner" id="studentBanner" style="display:none;">
-        <div class="banner-inner">
-          <div class="robot-graphic">
-            <div class="robot-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30" height="30">
-                <circle cx="24" cy="24" r="20" fill="#EBF3FC" stroke="#1E60D6" stroke-width="3"/>
-                <path d="M16 26c2 3 6 4 8 4s6-1 8-4" stroke="#1E60D6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                <circle cx="18" cy="18" r="2.5" fill="#1E60D6"/>
-                <circle cx="30" cy="18" r="2.5" fill="#1E60D6"/>
-              </svg>
-            </div>
-          </div>
-                    <rect x="18" y="19" width="4" height="4" rx="2" fill="#DF4B81" />
-                    <rect x="26" y="19" width="4" height="4" rx="2" fill="#DF4B81" />
-                    <path d="M19 28c2 2 6 2 8 0" stroke="#DF4B81" stroke-width="2.5" stroke-linecap="round" fill="none" />
-                  </svg>
-                </div>
-              </div>
-              <div class="banner-content">
-                <h3>나만의 수업 맞춤설정</h3>
-                <p>AI를 이용해 수업의 난이도와 내용을 조정하세요.</p>
-              </div>
-              <div class="banner-cta">
-                <button type="button" class="btn btn-primary" onclick="openSignupModal()">3일 무료 체험 신청하기</button>
-              </div>
-            </div>
-          </section>
 
         </div>
       </div>
@@ -724,7 +700,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.4.1"></script>
+  <script src="assets/js/trial.js?v=1.4.2"></script>
 </body>
 
 </html>
