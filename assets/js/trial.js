@@ -16,41 +16,46 @@
       { value: "집합과 명제", text: "집합과 명제 (준비 중)", disabled: true },
       { value: "함수와 그래프", text: "함수와 그래프 (준비 중)", disabled: true }
     ],
+    "공통수학2": [
+      { value: "도형의 방정식", text: "도형의 방정식", selected: true },
+      { value: "집합과 명제", text: "집합과 명제" },
+      { value: "함수와 그래프", text: "함수와 그래프" }
+    ],
     "공통국어1": [
       { value: "문학과 매체", text: "문학과 매체 (준비 중)", disabled: true }
     ],
+    "공통국어2": [],
     "공통영어1": [
       { value: "공통영어 1", text: "공통영어 1 (준비 중)", disabled: true }
     ],
+    "공통영어2": [
+      { value: "소통과 공감", text: "소통과 공감", selected: true },
+      { value: "기술 혁신과 윤리", text: "기술 혁신과 윤리" },
+      { value: "환경과 지속가능성", text: "환경과 지속가능성" },
+      { value: "문화와 창의적 예술", text: "문화와 창의적 예술" },
+      { value: "미디어와 비판적 사고", text: "미디어와 비판적 사고" }
+    ],
+    "한국사1": [],
+    "한국사2": [],
     "통합사회1": [
       { value: "사회 탐구", text: "사회 탐구 (준비 중)", disabled: true }
     ],
+    "통합사회2": [],
     "통합과학1": [
       { value: "자연과 물질", text: "자연과 물질 (준비 중)", disabled: true }
     ],
+    "통합과학2": [],
     "과학탐구실험1": [
       { value: "탐구 실험", text: "탐구 실험 (준비 중)", disabled: true }
     ],
-    "음악": [
-      { value: "음악 감상과 표현", text: "음악 감상과 표현 (준비 중)", disabled: true }
-    ],
-    "미술": [
-      { value: "미술과 창작", text: "미술과 창작 (준비 중)", disabled: true }
-    ],
-    "체육": [
-      { value: "운동과 건강", text: "운동과 건강 (준비 중)", disabled: true }
-    ],
-    "정보": [
-      { value: "정보와 컴퓨터", text: "정보와 컴퓨터 (준비 중)", disabled: true }
-    ],
-    "진로와 직업": [
-      { value: "진로 탐색", text: "진로 탐색 (준비 중)", disabled: true }
-    ]
+    "과학탐구실험2": []
   };
 
   function refreshTopicOptions() {
-    var subject = subjectSelect.value;
-    var topics = topicOptions[subject] || [];
+    if (!subjectSelect || !topicSelect) return;
+    var subject = subjectSelect.value || "";
+    var normalizedKey = subject.replace(/\s+/g, "");
+    var topics = topicOptions[normalizedKey] || topicOptions[subject] || [];
     topicSelect.innerHTML = "";
 
     if (topics.length === 0) {

@@ -1134,8 +1134,8 @@ body.trial-page {
   text-align: center;
   font-size: 1.45rem;
   font-weight: 800;
-  color: var(--purple-950);
-  margin: 8px 0 2px;
+  color: var(--purple-600);
+  margin: 4px 0 2px;
   letter-spacing: -0.03em;
 }
 
@@ -1468,6 +1468,9 @@ body.trial-page {
   gap: 16px;
   margin-bottom: 8px;
   flex-wrap: wrap;
+}
+.panel-header .panel-title {
+  margin-bottom: 0;
 }
 
 .panel-nav {

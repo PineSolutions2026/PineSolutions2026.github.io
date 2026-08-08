@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.5.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5.3">
 </head>
 
 <body class="trial-page">
@@ -60,7 +60,23 @@
       <div class="trial-grid" id="teacherView">
         <!-- LEFT: Stepby-Step Lesson Planner -->
         <section class="planner-panel">
-          <h2 class="panel-title">단계별 AI 수업 플래너</h2>
+          <div class="panel-header">
+            <h2 class="panel-title">단계별 AI 수업 플래너</h2>
+            <div class="panel-nav">
+              <div class="panel-nav-tabs">
+                <div class="panel-nav-tab active">홈</div>
+                <div class="panel-nav-tab">내 리소스</div>
+                <div class="panel-nav-tab">AI행정도우미</div>
+                <div class="panel-nav-tab">우리 학교</div>
+              </div>
+              <div class="panel-nav-profile">
+                <svg class="profile-avatar" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="12" fill="#E2E8F0" />
+                  <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#94A3B8" />
+                </svg>
+              </div>
+            </div>
+          </div>
           
           <div class="step-list">
             <!-- Step 1: 학년 선택 -->
@@ -89,17 +105,20 @@
               </div>
               <div class="select-wrapper">
                 <select id="subjectSelect">
-                  <option value="공통수학1" selected>공통수학1</option>
                   <option value="공통국어1" disabled>공통국어1 (준비 중)</option>
+                  <option value="공통국어2" disabled>공통국어2 (준비 중)</option>
+                  <option value="공통수학1" selected>공통수학1</option>
+                  <option value="공통수학2">공통수학2</option>
                   <option value="공통영어1" disabled>공통영어1 (준비 중)</option>
+                  <option value="공통영어2">공통영어2</option>
+                  <option value="한국사1" disabled>한국사1 (준비 중)</option>
+                  <option value="한국사2" disabled>한국사2 (준비 중)</option>
                   <option value="통합사회1" disabled>통합사회1 (준비 중)</option>
+                  <option value="통합사회2" disabled>통합사회2 (준비 중)</option>
                   <option value="통합과학1" disabled>통합과학1 (준비 중)</option>
+                  <option value="통합과학2" disabled>통합과학2 (준비 중)</option>
                   <option value="과학탐구실험1" disabled>과학탐구실험1 (준비 중)</option>
-                  <option value="음악" disabled>음악 (준비 중)</option>
-                  <option value="미술" disabled>미술 (준비 중)</option>
-                  <option value="체육" disabled>체육 (준비 중)</option>
-                  <option value="정보" disabled>정보 (준비 중)</option>
-                  <option value="진로와 직업" disabled>진로와 직업 (준비 중)</option>
+                  <option value="과학탐구실험2" disabled>과학탐구실험2 (준비 중)</option>
                 </select>
               </div>
             </div>
@@ -222,20 +241,6 @@
 
           <div class="panel-header">
             <h2 class="panel-title">AI 생성 수업 자료</h2>
-            <div class="panel-nav">
-              <div class="panel-nav-tabs">
-                <div class="panel-nav-tab active">홈</div>
-                <div class="panel-nav-tab">내 리소스</div>
-                <div class="panel-nav-tab">AI행정도우미</div>
-                <div class="panel-nav-tab">우리 학교</div>
-              </div>
-              <div class="panel-nav-profile">
-                <svg class="profile-avatar" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="12" fill="#E2E8F0" />
-                  <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#94A3B8" />
-                </svg>
-              </div>
-            </div>
           </div>
           <p class="panel-subtitle">원하는 자료를 클릭하여 미리보거나 정식 다운로드하세요.</p>
 
@@ -683,7 +688,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.5.1"></script>
+  <script src="assets/js/trial.js?v=1.5.3"></script>
 </body>
 
 </html>
