@@ -2653,6 +2653,8 @@ body.trial-page {
 .bg-eng { background: #5C8AD9; }
 .bg-math { background: #2258B3; }
 .bg-sci { background: #9B68E8; }
+.bg-soc { background: #F59E0B; }
+.bg-exp { background: #10B981; }
 .achieve-val {
   font-size: 0.76rem;
   font-weight: 800;
