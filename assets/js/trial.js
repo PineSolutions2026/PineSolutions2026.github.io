@@ -135,9 +135,6 @@
   var studentView = document.getElementById("studentView");
   var studentBanner = document.getElementById("studentBanner");
   var studentInfoBar = document.getElementById("studentInfoBar");
-  var pillTeacher = document.getElementById("pillTeacher");
-  var pillStudent = document.getElementById("pillStudent");
-
   var brandText = document.getElementById("brandText");
 
   if (selectedRole === "student") {
@@ -146,8 +143,6 @@
     if (studentView) studentView.style.display = "grid";
     if (studentBanner) studentBanner.style.display = "block";
     if (studentInfoBar) studentInfoBar.style.display = "flex";
-    if (pillStudent) pillStudent.classList.add("active");
-    if (pillTeacher) pillTeacher.classList.remove("active");
 
     if (trialRoleBadge) {
       trialRoleBadge.textContent = "학생용 체험";
@@ -161,8 +156,6 @@
     if (studentView) studentView.style.display = "none";
     if (studentBanner) studentBanner.style.display = "none";
     if (studentInfoBar) studentInfoBar.style.display = "none";
-    if (pillTeacher) pillTeacher.classList.add("active");
-    if (pillStudent) pillStudent.classList.remove("active");
 
     if (trialRoleBadge) {
       trialRoleBadge.textContent = "교사용 체험";
