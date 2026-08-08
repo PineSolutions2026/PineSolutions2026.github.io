@@ -149,6 +149,14 @@
   }
 
   // 1. AI Type Selection Toggle
+  var aiTypeSelect = document.getElementById("aiTypeSelect");
+  if (aiTypeSelect) {
+    selectedAiType = aiTypeSelect.value;
+    aiTypeSelect.addEventListener("change", function () {
+      selectedAiType = aiTypeSelect.value;
+    });
+  }
+
   aiTypeBtns.forEach(function (btn) {
     btn.addEventListener("click", function () {
       aiTypeBtns.forEach(function (b) { b.classList.remove("active"); });
