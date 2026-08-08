@@ -146,7 +146,7 @@
       trialRoleBadge.classList.add("student-theme");
     }
     if (trialTitle) trialTitle.textContent = "PINE LMS 맞춤형 학습 관리 시스템";
-    if (trialSubtitle) trialSubtitle.textContent = "학생이 직접 체득하고 성취도를 실시간 확인하는 AI 기반 학습 관리 데모";
+    if (trialSubtitle) trialSubtitle.textContent = "학생이 직접 체득하고 성취도를 실시간 확인하는 AI 기반 학습 관리";
   } else {
     if (brandText) brandText.innerHTML = 'PINE <em>Model for Educators</em>';
     if (teacherView) teacherView.style.display = "grid";
