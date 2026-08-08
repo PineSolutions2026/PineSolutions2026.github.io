@@ -1407,6 +1407,7 @@ body.trial-page {
    display: none !important;
    grid-template-columns: repeat(2, minmax(0, 1fr));
    gap: 10px;
+ }
  .upload-specs,
  .upload-specs div,
  .upload-summary,
