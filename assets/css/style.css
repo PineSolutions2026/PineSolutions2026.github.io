@@ -2939,8 +2939,9 @@ input:checked + .slider:before {
 /* Circular Floating AI Analysis Button for Student View */
 .student-ai-analysis-btn {
   position: fixed;
-  bottom: 28px;
+  top: 50%;
   right: 28px;
+  transform: translateY(-50%);
   width: 68px;
   height: 68px;
   border-radius: 50%;
@@ -2954,14 +2955,14 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
 }
 .student-ai-analysis-btn:hover {
-  transform: scale(1.1) translateY(-4px);
+  transform: translateY(-50%) scale(1.12);
   box-shadow: 0 12px 30px rgba(124, 58, 237, 0.6);
 }
 .student-ai-analysis-btn:active {
-  transform: scale(0.96);
+  transform: translateY(-50%) scale(0.96);
 }
 .student-ai-analysis-btn .ai-btn-icon {
   font-size: 1.5rem;
