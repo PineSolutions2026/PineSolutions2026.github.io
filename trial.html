@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.5.3">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5.4">
 </head>
 
 <body class="trial-page">
@@ -331,7 +331,7 @@
       <!-- STUDENT VIEW CONTAINER -->
       <div class="student-grid" id="studentView" style="display:none;">
         
-        <!-- LEFT COLUMN: 교과 과목 / 진행 중인 과제 / 이번 주 평가 및 퀴즈 -->
+        <!-- LEFT COLUMN: 학습 활동 로그 & 진행 중인 과제 -->
         <div class="student-col student-col-left">
           
           <!-- 1. 학습 활동 로그 (Activity Log) -->
@@ -340,7 +340,7 @@
               <h3>📜 학습 활동 로그 (Activity Log)</h3>
             </div>
             <p class="activity-log-desc">
-              최근 5일간 공통수학1 문제 풀이 12건, 공통사회1 에세이 제출 1건 완료했습니다.
+              최근 5일간 공통수학1 문제 풀이 12건, 공동사회1 에세이 제출 1건 완료했습니다.
             </p>
           </div>
 
@@ -405,7 +405,12 @@
             </div>
           </div>
 
-          <!-- 3. 이번 주 평가 및 퀴즈 -->
+        </div>
+
+        <!-- MIDDLE COLUMN: 이번 주 평가 및 퀴즈 & 과목별 성취도 & 나의 과정 평가 리포트 요약 -->
+        <div class="student-col student-col-mid">
+
+          <!-- 1. 이번 주 평가 및 퀴즈 -->
           <div class="student-card quiz-card">
             <div class="card-title-row">
               <h3>📊 이번 주 평가 및 퀴즈</h3>
@@ -435,12 +440,7 @@
             </div>
           </div>
 
-        </div>
-
-        <!-- MIDDLE COLUMN: 과목별 성취도 & 이번 학기 목표 달성률 & 나 과정 평가 리포트 & 학습 활동 로그 -->
-        <div class="student-col student-col-mid">
-
-          <!-- 과목별 성취도 -->
+          <!-- 2. 과목별 성취도 -->
           <div class="student-card achievement-card">
             <div class="card-title-row">
               <h3>📈 과목별 성취도</h3>
@@ -485,26 +485,7 @@
             </div>
           </div>
 
-          <!-- 이번 학기 목표 달성률 -->
-          <div class="student-card goal-card">
-            <div class="card-title-row">
-              <h3>🎯 이번 학기 목표 달성률</h3>
-            </div>
-            <div class="goal-gauge-container">
-              <div class="ring-wrapper">
-                <svg class="ring-svg" viewBox="0 0 100 100">
-                  <circle class="ring-bg" cx="50" cy="50" r="40" />
-                  <circle class="ring-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="80.38" />
-                </svg>
-                <div class="ring-text">
-                  <strong>68%</strong>
-                  <span>이번 학기<br>목표 달성률</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 나의 과정 평가 리포트 요약 -->
+          <!-- 3. 나의 과정 평가 리포트 요약 -->
           <div class="student-card report-summary-card">
             <div class="report-inner-row">
               <div class="report-info">
@@ -522,7 +503,7 @@
         <!-- RIGHT COLUMN: 교사 피드백 & 접근성/번역 & 선생님께 질문하기 -->
         <div class="student-col student-col-right">
 
-          <!-- 교사 피드백 -->
+          <!-- 1. 교사 피드백 -->
           <div class="student-card feedback-card">
             <div class="card-title-row">
               <h3>💬 교사 피드백</h3>
@@ -540,7 +521,7 @@
             </div>
           </div>
 
-          <!-- 학습 보조 도구 & 접근성 -->
+          <!-- 2. 학습 보조 도구 & 접근성 -->
           <div class="student-card accessibility-card">
             <div class="accessibility-controls">
               <div class="tts-toggle-row">
@@ -570,7 +551,7 @@
             </div>
           </div>
 
-          <!-- 선생님께 질문하기 -->
+          <!-- 3. 선생님께 질문하기 -->
           <div class="student-card ask-teacher-card">
             <div class="card-title-row">
               <h3>🙋 선생님께 질문하기</h3>
@@ -688,7 +669,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.5.3"></script>
+  <script src="assets/js/trial.js?v=1.5.4"></script>
 </body>
 
 </html>
