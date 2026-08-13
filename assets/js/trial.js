@@ -642,6 +642,9 @@
   var lockinTimerInterval = null;
   var lockinTimeRemaining = 45 * 60; // 45 minutes
   var lockinAnswers = { 1: 3, 2: null, 3: null, 4: null, 5: null };
+  var currentLockinMode = "choice";
+  var aiUsageCount = 1;
+  var maxAiUsage = 5;
 
   window.openLockinSampleModal = function() {
     var subjectSelect = document.getElementById("studentSubjectSelect");
@@ -675,6 +678,107 @@
     clearInterval(lockinTimerInterval);
     var toast = document.getElementById("lockinViolationToast");
     if (toast) toast.style.display = "none";
+  };
+
+  window.switchLockinMode = function(mode) {
+    currentLockinMode = mode;
+    var tabChoice = document.getElementById("tabChoiceExam");
+    var tabAi = document.getElementById("tabAiExam");
+    var choiceView = document.getElementById("choiceExamView");
+    var aiView = document.getElementById("aiExamView");
+    var omrCard = document.getElementById("omrCardPanel");
+    var aiCard = document.getElementById("aiCardPanel");
+
+    if (mode === "ai") {
+      if (tabChoice) tabChoice.classList.remove("active");
+      if (tabAi) tabAi.classList.add("active");
+      if (choiceView) choiceView.style.display = "none";
+      if (aiView) aiView.style.display = "block";
+      if (omrCard) omrCard.style.display = "none";
+      if (aiCard) aiCard.style.display = "block";
+    } else {
+      if (tabChoice) tabChoice.classList.add("active");
+      if (tabAi) tabAi.classList.remove("active");
+      if (choiceView) choiceView.style.display = "block";
+      if (aiView) aiView.style.display = "none";
+      if (omrCard) omrCard.style.display = "block";
+      if (aiCard) aiCard.style.display = "none";
+    }
+  };
+
+  window.sendLockinAiPrompt = function() {
+    var input = document.getElementById("studentAiPromptInput");
+    if (!input || !input.value.trim()) {
+      alert("AI 튜터에게 질문할 프롬프트 내용을 입력해 주세요.");
+      return;
+    }
+
+    if (aiUsageCount >= maxAiUsage) {
+      alert("⚠️ [AI 사용 횟수 초과]\n선생님이 설정한 AI 질문 허용 횟수(" + maxAiUsage + "회)를 모두 소진하였습니다.");
+      return;
+    }
+
+    var promptText = input.value.trim();
+    aiUsageCount++;
+
+    // Update Counter Displays
+    var displayEl = document.getElementById("aiUsageCountDisplay");
+    var remainEl = document.getElementById("aiUsageRemainingText");
+    var progressFill = document.getElementById("aiUsageProgressFill");
+    var statVal = document.getElementById("aiUsageStatVal");
+
+    if (displayEl) displayEl.textContent = aiUsageCount + " / " + maxAiUsage + " 회";
+    if (remainEl) remainEl.textContent = (maxAiUsage - aiUsageCount);
+    if (progressFill) progressFill.style.width = ((aiUsageCount / maxAiUsage) * 100) + "%";
+    if (statVal) statVal.textContent = aiUsageCount + " / " + maxAiUsage + " 회";
+
+    // Add History Item to Stream
+    var stream = document.getElementById("promptHistoryStream");
+    if (stream) {
+      var item = document.createElement("div");
+      item.className = "history-item";
+      var now = new Date();
+      var timeStr = (now.getHours() < 10 ? "0" + now.getHours() : now.getHours()) + ":" + 
+                    (now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()) + ":" + 
+                    (now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds());
+
+      item.innerHTML = 
+        '<div class="history-header">' +
+        '  <span class="prompt-num">💬 [내 프롬프트 #' + aiUsageCount + ']</span>' +
+        '  <span class="history-time">' + timeStr + ' 이력 기록됨</span>' +
+        '</div>' +
+        '<p class="prompt-text">"' + promptText.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '"</p>' +
+        '<div class="ai-reply-box">' +
+        '  <span class="reply-label">🤖 [PINE AI 튜터 답변]</span>' +
+        '  <p class="reply-text">선생님이 통제한 규칙에 따른 답변입니다. 입력하신 프롬프트 "' + promptText.substring(0, 18) + '..."를 분석하여 윤리적·개념적 가이드를 시뮬레이션하였습니다.</p>' +
+        '</div>';
+
+      stream.appendChild(item);
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    input.value = "";
+
+    if (aiUsageCount >= maxAiUsage) {
+      input.disabled = true;
+      input.placeholder = "선생님이 허용한 AI 튜터 질문 횟수(5회)를 모두 소진하셨습니다.";
+      var btn = document.getElementById("btnSendAiPrompt");
+      if (btn) btn.disabled = true;
+    }
+  };
+
+  window.updateEssayCharCount = function(textarea) {
+    var statVal = document.getElementById("essayCharCountVal");
+    if (statVal && textarea) {
+      statVal.textContent = textarea.value.length + " 자 작성";
+    }
+  };
+
+  window.togglePromptHistorySummary = function() {
+    alert("📋 [내 프롬프트 기록 & AI 답변 요약]\n\n" +
+          "• 현재 총 사용 횟수: " + aiUsageCount + " / 5회\n" +
+          "• 교사 실시간 감사 상태: 정상 기록 중 (Live Sync)\n" +
+          "• 모든 질문과 AI 답변은 제출 시 과목별 수행평가 리포트 및 나이스(NEIS)로 전송됩니다.");
   };
 
   function updateLockinTimerDisplay() {
@@ -722,14 +826,23 @@
   };
 
   window.submitLockinExam = function() {
-    var filledCount = 0;
-    for (var key in lockinAnswers) {
-      if (lockinAnswers[key] !== null) filledCount++;
-    }
+    if (currentLockinMode === "ai") {
+      var essayInput = document.getElementById("studentFinalEssayInput");
+      var essayLen = (essayInput && essayInput.value) ? essayInput.value.length : 0;
+      if (confirm("🔒 [PINE Secure CBT - AI 융합 수행평가]\n답안을 최종 제출하시겠습니까?\n\n- AI 사용 횟수: " + aiUsageCount + " / 5회\n- 작성 서술 분량: " + essayLen + " 자\n- 프롬프트 및 AI 답변 이력 전송: 완료")) {
+        closeLockinSampleModal();
+        alert("🎉 [AI 융합 수행평가 제출 완료]\n\n학생의 탐구 프롬프트 이력(" + aiUsageCount + "건)과 서술형 답안이 정상 전송되었습니다.\n교사 관리자 페이지 및 나이스(NEIS) 리포트에 반영됩니다.");
+      }
+    } else {
+      var filledCount = 0;
+      for (var key in lockinAnswers) {
+        if (lockinAnswers[key] !== null) filledCount++;
+      }
 
-    if (confirm("🔒 [PINE Secure CBT] 답안을 최종 제출하시겠습니까?\n\n- 제출 완료 문항: " + filledCount + " / 5 문항\n- 제출 시 락인 보호 모드가 자동 종료되며 리포트로 연결됩니다.")) {
-      closeLockinSampleModal();
-      alert("🎉 [평가 제출 완료]\n\n" + filledCount + "개 문항 답안이 정상 제출되었습니다.\n락인 보안 보호 모드가 해제되고 실시간 성취도 리포트가 업데이트됩니다.");
+      if (confirm("🔒 [PINE Secure CBT] 답안을 최종 제출하시겠습니까?\n\n- 제출 완료 문항: " + filledCount + " / 5 문항\n- 제출 시 락인 보호 모드가 자동 종료되며 리포트로 연결됩니다.")) {
+        closeLockinSampleModal();
+        alert("🎉 [평가 제출 완료]\n\n" + filledCount + "개 문항 답안이 정상 제출되었습니다.\n락인 보안 보호 모드가 해제되고 실시간 성취도 리포트가 업데이트됩니다.");
+      }
     }
   };
 

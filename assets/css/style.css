@@ -3409,6 +3409,326 @@ input:checked + .slider:before {
   background: rgba(245, 158, 11, 0.35);
 }
 
+/* Mode Selector Tabs */
+.lockin-mode-bar {
+  background: #1E293B;
+  border-bottom: 1px solid #334155;
+  padding: 8px 24px;
+}
+.lockin-mode-tabs {
+  display: flex;
+  gap: 8px;
+}
+.lockin-mode-tab {
+  background: #0F172A;
+  border: 1px solid #334155;
+  color: #94A3B8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.lockin-mode-tab:hover {
+  background: #1E293B;
+  color: #F8FAFC;
+}
+.lockin-mode-tab.active {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  border-color: #10B981;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* AI Mode Specific Styles */
+.ai-control-status-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 3px 8px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ai-control-status-badge .status-dot {
+  color: #34D399;
+  font-size: 0.5rem;
+}
+
+.ai-task-box {
+  background: #0F172A;
+  border: 1.5px solid #059669;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.ai-task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.ai-task-header h5 {
+  font-size: 0.88rem;
+  color: #6EE7B7;
+  margin: 0;
+}
+.task-score {
+  font-size: 0.72rem;
+  color: #A7F3D0;
+  background: rgba(5, 150, 105, 0.2);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.ai-task-desc {
+  font-size: 0.85rem;
+  color: #E2E8F0;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.ai-control-banner {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.counter-text {
+  font-size: 0.78rem;
+  color: #CBD5E1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.counter-text strong {
+  color: #34D399;
+  font-size: 0.9rem;
+}
+.usage-remaining {
+  font-size: 0.72rem;
+  color: #94A3B8;
+}
+.usage-progress-bar {
+  height: 6px;
+  background: #1E293B;
+  border-radius: 99px;
+  overflow: hidden;
+}
+.usage-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10B981 0%, #34D399 100%);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.ai-prompt-workspace {
+  background: #0F172A;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.workspace-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.workspace-title-row h6 {
+  font-size: 0.82rem;
+  color: #F8FAFC;
+  margin: 0;
+}
+.audit-notice-tag {
+  font-size: 0.68rem;
+  color: #FCA5A5;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.ai-prompt-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ai-prompt-input-group textarea {
+  width: 100%;
+  background: #1E293B;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 10px;
+  color: #F8FAFC;
+  font-family: inherit;
+  font-size: 0.82rem;
+  resize: vertical;
+}
+.ai-prompt-input-group textarea:focus {
+  outline: none;
+  border-color: #10B981;
+}
+.btn-send-prompt {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-send-prompt:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.btn-send-prompt:disabled {
+  background: #475569;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.prompt-history-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.history-item {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.prompt-num {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #6EE7B7;
+}
+.history-time {
+  font-size: 0.68rem;
+  color: #94A3B8;
+}
+.prompt-text {
+  font-size: 0.8rem;
+  color: #E2E8F0;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.ai-reply-box {
+  background: #0F172A;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.reply-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #60A5FA;
+  display: block;
+  margin-bottom: 4px;
+}
+.reply-text {
+  font-size: 0.78rem;
+  color: #CBD5E1;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.student-essay-workspace {
+  background: #0F172A;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-view-prompt-history {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93C5FD;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-view-prompt-history:hover {
+  background: rgba(59, 130, 246, 0.3);
+  color: #FFFFFF;
+}
+.student-essay-workspace textarea {
+  width: 100%;
+  background: #1E293B;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 10px;
+  color: #F8FAFC;
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+.student-essay-workspace textarea:focus {
+  outline: none;
+  border-color: #34D399;
+}
+
+/* AI Status Card Right Panel */
+.ai-summary-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.stat-box {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+.stat-value {
+  font-size: 0.85rem;
+  color: #F8FAFC;
+}
+.stat-value.text-green {
+  color: #34D399;
+}
+.audit-info-card {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.audit-info-card p {
+  font-size: 0.68rem;
+  color: #A7F3D0;
+  line-height: 1.4;
+  margin: 0;
+}
+
 /* Body Grid */
 .lockin-body-grid {
   display: grid;
