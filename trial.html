@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=1.9.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.0.0">
 </head>
 
 <body class="trial-page">
@@ -259,6 +259,7 @@
                 <p>수업 흐름과 핵심 내용이 포함된 수업 프레젠테이션</p>
                 <div class="card-actions" style="display:flex; flex-direction:column; gap:6px; width:100%;">
                   <button type="button" class="btn-card btn-ppt-view" onclick="openPreview('ppt')">📂 미리보기</button>
+                  <button type="button" class="btn-card btn-ppt-edit" onclick="openEditorModal('ppt')">✏️ 수업 맞춤 수정</button>
                   <button type="button" class="btn-card btn-ppt" onclick="triggerSignup('수업 PPT')">📥 다운로드</button>
                 </div>
               </div>
@@ -296,7 +297,10 @@
               <div class="card-body">
                 <h3>학생 활동지</h3>
                 <p>수업 활동 참여를 유도하는 학생 배포용 활동지 양식</p>
-                <button type="button" class="btn-card btn-sheet" onclick="openPreview('sheet')">📂 미리보기</button>
+                <div class="card-actions" style="display:flex; flex-direction:column; gap:6px; width:100%;">
+                  <button type="button" class="btn-card btn-sheet-view" onclick="openPreview('sheet')">📂 미리보기</button>
+                  <button type="button" class="btn-card btn-sheet-edit" onclick="openEditorModal('sheet')">✏️ 활동지 맞춤 수정</button>
+                </div>
               </div>
             </div>
 
@@ -1002,6 +1006,86 @@
     </div>
   </div>
 
+  <!-- AI RESOURCE EDITOR MODAL -->
+  <div class="modal-backdrop editor-backdrop" id="editorModal">
+    <div class="modal-window editor-window">
+      <button type="button" class="modal-close" onclick="closeEditorModal()">&times;</button>
+      
+      <div class="editor-modal-header">
+        <div class="editor-brand">
+          <span class="editor-icon">✏️</span>
+          <div>
+            <h3 id="editorModalTitle">PINE AI 수업 리소스 맞춤 편집기</h3>
+            <p id="editorModalSubtitle">선생님의 교실 환경과 학생 수준에 맞춰 리소스 내용을 즉시 재가공하세요.</p>
+          </div>
+        </div>
+        <div class="editor-header-meta">
+          <span class="meta-pill" id="editorMetaSubject">공통수학1</span>
+          <span class="meta-pill" id="editorMetaGrade">고등학교 1학년</span>
+        </div>
+      </div>
+
+      <div class="editor-modal-body">
+        <!-- Left Panel: AI Refinement & Quick Prompt Chips -->
+        <div class="editor-side-panel">
+          <div class="side-section">
+            <h5 class="side-title">🤖 AI 원클릭 맞춤 재가공</h5>
+            <p class="side-desc">자주 사용하는 맞춤형 수정 지시사항을 클릭해 보세요.</p>
+            
+            <div class="ai-refine-chips">
+              <button type="button" class="chip-btn" onclick="applyAiRefinePreset('difficulty')">
+                ✨ 난이도 한 단계 조정 (기초 ➔ 심화)
+              </button>
+              <button type="button" class="chip-btn" onclick="applyAiRefinePreset('question')">
+                📝 실생활 응용 탐구 문항 2개 추가
+              </button>
+              <button type="button" class="chip-btn" onclick="applyAiRefinePreset('discussion')">
+                💬 모둠 협업 토론 질문 강화
+              </button>
+              <button type="button" class="chip-btn" onclick="applyAiRefinePreset('structure')">
+                🎨 요약 및 결론 구조 재구성
+              </button>
+            </div>
+          </div>
+
+          <div class="side-section">
+            <h5 class="side-title">💬 AI 수정 프롬프트 직접 입력</h5>
+            <div class="prompt-refine-form">
+              <textarea id="aiRefinePromptInput" placeholder="예: '2번 문항을 학생 실습 중심으로 변경하고 가이드라인을 더 구체화해줘.'" rows="3"></textarea>
+              <button type="button" class="btn-apply-prompt" onclick="applyAiRefinePrompt()">
+                ⚡ AI 맞춤 수정 적용
+              </button>
+            </div>
+          </div>
+
+          <div class="side-section audit-info">
+            <p>💡 <strong>수정 팁:</strong> AI 자동 재가공 외에도 오른쪽 영역에서 텍스트를 직접 수정하실 수 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- Right Panel: Live Editable Content Form -->
+        <div class="editor-main-panel">
+          <div class="main-panel-header">
+            <h4 id="editorContentHeading">📄 리소스 세부 항목 직접 편집</h4>
+            <span class="edit-status-badge">✏️ 실시간 편집 가능</span>
+          </div>
+
+          <!-- Dynamic Editor Container -->
+          <div class="editor-form-container" id="editorFormContainer">
+            <!-- Injected by trial.js -->
+          </div>
+        </div>
+      </div>
+
+      <div class="editor-modal-footer">
+        <button type="button" class="btn btn-ghost" onclick="closeEditorModal()">취소</button>
+        <button type="button" class="btn btn-primary btn-save-editor" onclick="saveEditorChanges()">
+          💾 수정 내용 저장 및 미리보기 반영
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- PREVIEW MODAL -->
   <div class="modal-backdrop" id="previewModal">
     <div class="modal-window preview-window">
@@ -1098,7 +1182,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/trial.js?v=1.9.0"></script>
+  <script src="assets/js/trial.js?v=2.0.0"></script>
 </body>
 
 </html>

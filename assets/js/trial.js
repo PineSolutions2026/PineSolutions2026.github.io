@@ -393,41 +393,50 @@
     var difficultyVal = difficultySelect ? difficultySelect.value : "기초";
 
     if (type === "ppt") {
+      var pptData = editedResourceData.ppt;
+      var s1Title = pptData.slide1Title || (topic + " - AI 융합 수업 패키지");
+      var s1Sub = pptData.slide1Subtitle || ("AI와 함께 설계하는 창의적 탐구 학습 (" + selectedAiType + ")");
+      var s2Head = pptData.slide2Header || "[활동 1] 실생활 문제 탐색";
+      var s2B1 = pptData.slide2Bullet1 || ("실생활에서 " + topic + "의 쓰임새를 찾아봅시다.");
+      var s2B2 = pptData.slide2Bullet2 || "모둠별로 관련 사례를 마인드맵으로 시각화합니다.";
+      var s3Head = pptData.slide3Header || ("[활동 2] AI 융합 창작 (" + selectedAiType + ")");
+      var s3B1 = pptData.slide3Bullet1 || "선택한 AI 융합 도구를 활용해 프로젝트 산출물을 기획합니다.";
+
       html = 
         "<div class='ppt-preview-container'>" +
         "  <div class='ppt-preview-header'>" +
-        "    <span class='ppt-preview-tag'>🖥️ 수업 PPT 미리보기</span>" +
-        "    <h3>" + topic + " - AI 융합 수업 패키지</h3>" +
+        "    <span class='ppt-preview-tag'>🖥️ 수업 PPT 미리보기 (수정 반영)</span>" +
+        "    <h3>" + s1Title + "</h3>" +
         "  </div>" +
         "  <div class='ppt-slides-viewport'>" +
         "    <div class='ppt-slide active' id='slide1'>" +
         "      <div class='slide-inner slide-title-page'>" +
         "        <p class='slide-meta'>" + grade + " " + subject + " (" + difficultyVal + ")</p>" +
-        "        <h2>" + topic + "</h2>" +
-        "        <p class='slide-subtitle'>AI와 함께 설계하는 창의적 탐구 학습</p>" +
-        "        <div class='slide-footer'>PINE Model AI 자동 생성</div>" +
+        "        <h2>" + s1Title + "</h2>" +
+        "        <p class='slide-subtitle'>" + s1Sub + "</p>" +
+        "        <div class='slide-footer'>PINE Model AI 맞춤 편집 저장본</div>" +
         "      </div>" +
         "    </div>" +
         "    <div class='ppt-slide' id='slide2'>" +
         "      <div class='slide-inner'>" +
-        "        <h3>[활동 1] 실생활 문제 탐색</h3>" +
+        "        <h3>" + s2Head + "</h3>" +
         "        <ul class='slide-bullets'>" +
-        "          <li>실생활에서 <strong>" + topic + "</strong>의 쓰임새를 찾아봅시다.</li>" +
-        "          <li>모둠별로 관련 사례를 마인드맵으로 시각화합니다.</li>" +
+        "          <li>" + s2B1 + "</li>" +
+        "          <li>" + s2B2 + "</li>" +
         "          <li>AI 챗봇 비서를 활용해 사례의 타당성을 1차 검증합니다.</li>" +
         "        </ul>" +
-        "        <div class='slide-footer'>PINE Model AI 자동 생성 - 슬라이드 2</div>" +
+        "        <div class='slide-footer'>PINE Model AI 맞춤 편집 - 슬라이드 2</div>" +
         "      </div>" +
         "    </div>" +
         "    <div class='ppt-slide' id='slide3'>" +
         "      <div class='slide-inner'>" +
-        "        <h3>[활동 2] AI 융합 창작 (" + selectedAiType + ")</h3>" +
+        "        <h3>" + s3Head + "</h3>" +
         "        <ul class='slide-bullets'>" +
-        "          <li>선택한 AI 융합 도구를 활용해 프로젝트 산출물을 기획합니다.</li>" +
+        "          <li>" + s3B1 + "</li>" +
         "          <li>동료 피드백을 수집하여 작품의 완성도를 보완합니다.</li>" +
         "          <li>성취기준에 도달했는지 자가 체크리스트를 완성합니다.</li>" +
         "        </ul>" +
-        "        <div class='slide-footer'>PINE Model AI 자동 생성 - 슬라이드 3</div>" +
+        "        <div class='slide-footer'>PINE Model AI 맞춤 편집 - 슬라이드 3</div>" +
         "      </div>" +
         "    </div>" +
         "  </div>" +
@@ -568,19 +577,26 @@
       previewContent.innerHTML = html;
     }
     else if (type === "sheet") {
+      var sData = editedResourceData.sheet;
+      var sTitle = sData.title || (topic + " 탐색 및 " + selectedAiType + " 프로젝트 계획서");
+      var q1T = sData.q1Title || ("Q1. 우리가 배운 [" + topic + "]의 개념을 직접 설명해 보거나 그림으로 나타내어 보세요.");
+      var q1H = sData.q1Help || "이곳에 자유롭게 작성하세요.";
+      var q2T = sData.q2Title || ("Q2. " + selectedAiType + "를 활용하여 [" + topic + "] 문제 상황을 해결할 수 있는 아이디어를 설계해 보세요.");
+      var q2H = sData.q2Help || "- 프로젝트 제목:<br>- 주요 활용 AI 도구:<br>- 해결 방안 상세 스케치:";
+
       html = 
         "<div class='document-preview-container'>" +
         "  <div class='preview-doc-header doc-sheet'>" +
         "    <span class='doc-icon'>✍️</span>" +
         "    <div>" +
-        "      <h3>[학생 탐구 활동지] " + topic + "</h3>" +
+        "      <h3>[학생 탐구 활동지] " + topic + " (수정 반영)</h3>" +
         "      <p>" + grade + " · " + subject + " (" + difficultyVal + ") · " + selectedAiType + " 연계 활동지</p>" +
         "    </div>" +
         "  </div>" +
         "  <div class='doc-body-scroll'>" +
         "    <div class='worksheet-card'>" +
         "      <div class='worksheet-title-section'>" +
-        "        <h4>" + topic + " 탐색 및 " + selectedAiType + " 프로젝트 계획서</h4>" +
+        "        <h4>" + sTitle + "</h4>" +
         "        <div class='worksheet-meta-inputs'>" +
         "          <span>학년: _____</span>" +
         "          <span>반: _____</span>" +
@@ -588,12 +604,12 @@
         "        </div>" +
         "      </div>" +
         "      <div class='worksheet-question'>" +
-        "        <h5>Q1. 우리가 배운 [" + topic + "]의 개념을 직접 설명해 보거나 그림으로 나타내어 보세요.</h5>" +
-        "        <div class='worksheet-blank-box' style='height:80px;'>이곳에 자유롭게 작성하세요.</div>" +
+        "        <h5>" + q1T + "</h5>" +
+        "        <div class='worksheet-blank-box' style='height:80px; white-space:pre-wrap;'>" + q1H + "</div>" +
         "      </div>" +
         "      <div class='worksheet-question'>" +
-        "        <h5>Q2. " + selectedAiType + "를 활용하여 [" + topic + "] 문제 상황을 해결할 수 있는 아이디어를 설계해 보세요.</h5>" +
-        "        <div class='worksheet-blank-box' style='height:120px;'>- 프로젝트 제목:<br>- 주요 활용 AI 도구:<br>- 해결 방안 상세 스케치:</div>" +
+        "        <h5>" + q2T + "</h5>" +
+        "        <div class='worksheet-blank-box' style='height:120px; white-space:pre-wrap;'>" + q2H + "</div>" +
         "      </div>" +
         "    </div>" +
         "  </div>" +
@@ -609,6 +625,237 @@
     if (previewModal) {
       previewModal.classList.add("open");
     }
+  };
+
+  // 3.1 Resource Editor Handlers
+  var editorModal = document.getElementById("editorModal");
+  var currentEditResourceType = "ppt";
+  var editedResourceData = {
+    ppt: {
+      slide1Title: "",
+      slide1Subtitle: "",
+      slide2Header: "[활동 1] 실생활 문제 탐색",
+      slide2Bullet1: "실생활에서 핵심 개념의 쓰임새를 찾아봅시다.",
+      slide2Bullet2: "모둠별로 관련 사례를 마인드맵으로 시각화합니다.",
+      slide3Header: "[활동 2] AI 융합 창작 탐구",
+      slide3Bullet1: "선택한 AI 융합 도구를 활용해 프로젝트 산출물을 기획합니다."
+    },
+    sheet: {
+      title: "",
+      q1Title: "",
+      q1Help: "",
+      q2Title: "",
+      q2Help: ""
+    }
+  };
+
+  window.openEditorModal = function(type) {
+    if (!isGenerated) {
+      alert("먼저 왼쪽 플래너에서 '리소스 생성'을 클릭해 자료를 생성해 주세요.");
+      return;
+    }
+    currentEditResourceType = type;
+    var topic = getTopic() || "방정식과 함수";
+    var subject = subjectSelect ? subjectSelect.value : "공통수학1";
+    var grade = gradeSelect ? gradeSelect.value : "고등학교 1학년";
+
+    var titleEl = document.getElementById("editorModalTitle");
+    var subtitleEl = document.getElementById("editorModalSubtitle");
+    var metaSub = document.getElementById("editorMetaSubject");
+    var metaGrade = document.getElementById("editorMetaGrade");
+    var headingEl = document.getElementById("editorContentHeading");
+    var formContainer = document.getElementById("editorFormContainer");
+
+    if (metaSub) metaSub.textContent = subject;
+    if (metaGrade) metaGrade.textContent = grade;
+
+    if (type === "ppt") {
+      if (titleEl) titleEl.textContent = "🖥️ 수업 PPT 맞춤 편집기";
+      if (subtitleEl) subtitleEl.textContent = "슬라이드 제목, 내용 및 AI 융합 교수법 구성을 자유롭게 수정하세요.";
+      if (headingEl) headingEl.textContent = "🖥️ 수업 PPT 슬라이드 항목 편집";
+
+      var data = editedResourceData.ppt;
+      if (!data.slide1Title) data.slide1Title = topic + " - AI 융합 수업 패키지";
+      if (!data.slide1Subtitle) data.slide1Subtitle = "AI와 함께 설계하는 창의적 탐구 학습 (" + selectedAiType + ")";
+
+      formContainer.innerHTML = 
+        '<div class="slide-edit-card">' +
+        '  <h6>슬라이드 1: 표지 제목 및 부제목</h6>' +
+        '  <div class="edit-field-group">' +
+        '    <label>수업 대주제/제목</label>' +
+        '    <input type="text" id="editPptSlide1Title" value="' + data.slide1Title.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '  <div class="edit-field-group">' +
+        '    <label>수업 소제목/안내문</label>' +
+        '    <input type="text" id="editPptSlide1Sub" value="' + data.slide1Subtitle.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '</div>' +
+        '<div class="slide-edit-card">' +
+        '  <h6>슬라이드 2: [활동 1] 탐구 학습 불렛포인트</h6>' +
+        '  <div class="edit-field-group">' +
+        '    <label>활동 타이틀</label>' +
+        '    <input type="text" id="editPptSlide2Header" value="' + data.slide2Header.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '  <div class="edit-field-group">' +
+        '    <label>핵심 활동 지시문 1</label>' +
+        '    <input type="text" id="editPptSlide2B1" value="' + data.slide2Bullet1.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '  <div class="edit-field-group">' +
+        '    <label>핵심 활동 지시문 2</label>' +
+        '    <input type="text" id="editPptSlide2B2" value="' + data.slide2Bullet2.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '</div>' +
+        '<div class="slide-edit-card">' +
+        '  <h6>슬라이드 3: [활동 2] AI 융합 창작 활동</h6>' +
+        '  <div class="edit-field-group">' +
+        '    <label>활동 타이틀</label>' +
+        '    <input type="text" id="editPptSlide3Header" value="' + data.slide3Header.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '  <div class="edit-field-group">' +
+        '    <label>AI 활용 활동 지시문</label>' +
+        '    <input type="text" id="editPptSlide3B1" value="' + data.slide3Bullet1.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '</div>';
+    } else if (type === "sheet") {
+      if (titleEl) titleEl.textContent = "✍️ 학생 활동지 맞춤 편집기";
+      if (subtitleEl) subtitleEl.textContent = "학생들에게 배포할 활동지 문항 및 가이드라인을 교실 상황에 맞게 변경하세요.";
+      if (headingEl) headingEl.textContent = "✍️ 학생 활동지 문항 항목 편집";
+
+      var sData = editedResourceData.sheet;
+      if (!sData.title) sData.title = topic + " 탐색 및 " + selectedAiType + " 프로젝트 계획서";
+      if (!sData.q1Title) sData.q1Title = "Q1. 우리가 배운 [" + topic + "]의 개념을 직접 설명해 보거나 그림으로 나타내어 보세요.";
+      if (!sData.q1Help) sData.q1Help = "이곳에 자유롭게 작성하세요.";
+      if (!sData.q2Title) sData.q2Title = "Q2. " + selectedAiType + "를 활용하여 [" + topic + "] 문제 상황을 해결할 수 있는 아이디어를 설계해 보세요.";
+      if (!sData.q2Help) sData.q2Help = "- 프로젝트 제목:\n- 주요 활용 AI 도구:\n- 해결 방안 상세 스케치:";
+
+      formContainer.innerHTML = 
+        '<div class="worksheet-edit-card">' +
+        '  <h6>활동지 헤더 타이틀</h6>' +
+        '  <div class="edit-field-group">' +
+        '    <label>활동지 대제목</label>' +
+        '    <input type="text" id="editSheetTitle" value="' + sData.title.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '</div>' +
+        '<div class="worksheet-edit-card">' +
+        '  <h6>문항 1 편집 (개념 이해/정리)</h6>' +
+        '  <div class="edit-field-group">' +
+        '    <label>Q1 문제 지시문</label>' +
+        '    <input type="text" id="editSheetQ1Title" value="' + sData.q1Title.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '  <div class="edit-field-group">' +
+        '    <label>Q1 답안 작성 가이드라인</label>' +
+        '    <input type="text" id="editSheetQ1Help" value="' + sData.q1Help.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '</div>' +
+        '<div class="worksheet-edit-card">' +
+        '  <h6>문항 2 편집 (AI 융합 응용 탐구)</h6>' +
+        '  <div class="edit-field-group">' +
+        '    <label>Q2 문제 지시문</label>' +
+        '    <input type="text" id="editSheetQ2Title" value="' + sData.q2Title.replace(/"/g, '&quot;') + '">' +
+        '  </div>' +
+        '  <div class="edit-field-group">' +
+        '    <label>Q2 양식 템플릿 안내</label>' +
+        '    <textarea id="editSheetQ2Help" rows="3">' + sData.q2Help + '</textarea>' +
+        '  </div>' +
+        '</div>';
+    }
+
+    if (editorModal) {
+      editorModal.classList.add("open");
+    }
+  };
+
+  window.closeEditorModal = function() {
+    if (editorModal) {
+      editorModal.classList.remove("open");
+    }
+  };
+
+  window.applyAiRefinePreset = function(presetType) {
+    var topic = getTopic() || "방정식과 함수";
+    if (currentEditResourceType === "ppt") {
+      if (presetType === "difficulty") {
+        var s2b1 = document.getElementById("editPptSlide2B1");
+        if (s2b1) s2b1.value = "심화 난이도: " + topic + "의 고난도 응용 문제 구조를 단계별로 분해해 봅시다.";
+        alert("✨ [AI 맞춤 재가공] PPT 슬라이드 난이도가 '심화' 수준으로 확장·재구성되었습니다!");
+      } else if (presetType === "question") {
+        var s3b1 = document.getElementById("editPptSlide3B1");
+        if (s3b1) s3b1.value = "AI 탐구 추가: 실생활 데이터셋을 수집하여 " + topic + " 모델링 결과물을 기획해 봅시다.";
+        alert("📝 [AI 맞춤 재가공] 실생활 데이터 응용 탐구 지시문이 추가되었습니다!");
+      } else if (presetType === "discussion") {
+        var s2h = document.getElementById("editPptSlide2Header");
+        if (s2h) s2h.value = "[활동 1] 모둠별 피어 리뷰 및 탐구 토론";
+        alert("💬 [AI 맞춤 재가공] 모둠 협업 및 동료 토론 중심 활동으로 슬라이드가 변경되었습니다!");
+      } else if (presetType === "structure") {
+        var s1sub = document.getElementById("editPptSlide1Sub");
+        if (s1sub) s1sub.value = "성취기준 중심 3단계 구조화 수업 (도입-AI실습-정리)";
+        alert("🎨 [AI 맞춤 재가공] 3단계 성취기준 중심 구조로 슬라이드 개요가 반영되었습니다!");
+      }
+    } else {
+      if (presetType === "difficulty") {
+        var q1t = document.getElementById("editSheetQ1Title");
+        if (q1t) q1t.value = "Q1 [심화] [" + topic + "]의 변형 원리를 수학적 증명과 그래프로 논술해 보세요.";
+        alert("✨ [AI 맞춤 재가공] 활동지 Q1 문항이 심화 논술형으로 재가공되었습니다!");
+      } else if (presetType === "question") {
+        var q2t = document.getElementById("editSheetQ2Title");
+        if (q2t) q2t.value = "Q2 [" + selectedAiType + " 융합] " + topic + "의 문제 해결을 위한 2가지 실생활 아이디어를 스케치해 보세요.";
+        alert("📝 [AI 맞춤 재가공] AI 융합 2단계 구체적 실습 아이디어 질문이 반영되었습니다!");
+      } else if (presetType === "discussion") {
+        var q1h = document.getElementById("editSheetQ1Help");
+        if (q1h) q1h.value = "모둠원 4명의 의견을 경청한 후 공통점과 차이점을 표로 정리하세요.";
+        alert("💬 [AI 맞춤 재가공] 활동지 내 모둠 협업 피드백 양식이 보완되었습니다!");
+      } else if (presetType === "structure") {
+        var st = document.getElementById("editSheetTitle");
+        if (st) st.value = topic + " 2022 개정 과정 중심 평가 수행 활동지";
+        alert("🎨 [AI 맞춤 재가공] 2022 개정 과정 중심 평가 표준 활동지 양식으로 갱신되었습니다!");
+      }
+    }
+  };
+
+  window.applyAiRefinePrompt = function() {
+    var input = document.getElementById("aiRefinePromptInput");
+    if (!input || !input.value.trim()) {
+      alert("수정 요청할 AI 프롬프트를 입력해 주세요.");
+      return;
+    }
+    var promptText = input.value.trim();
+    alert("⚡ [PINE AI 맞춤 수정 완료]\n\n입력하신 프롬프트:\n\"" + promptText + "\"\n\nAI가 요청사항을 반영하여 오른쪽 편집 양식 항목을 업데이트하였습니다!");
+    input.value = "";
+  };
+
+  window.saveEditorChanges = function() {
+    if (currentEditResourceType === "ppt") {
+      var t1 = document.getElementById("editPptSlide1Title");
+      var s1 = document.getElementById("editPptSlide1Sub");
+      var h2 = document.getElementById("editPptSlide2Header");
+      var b21 = document.getElementById("editPptSlide2B1");
+      var b22 = document.getElementById("editPptSlide2B2");
+      var h3 = document.getElementById("editPptSlide3Header");
+      var b31 = document.getElementById("editPptSlide3B1");
+
+      if (t1) editedResourceData.ppt.slide1Title = t1.value;
+      if (s1) editedResourceData.ppt.slide1Subtitle = s1.value;
+      if (h2) editedResourceData.ppt.slide2Header = h2.value;
+      if (b21) editedResourceData.ppt.slide2Bullet1 = b21.value;
+      if (b22) editedResourceData.ppt.slide2Bullet2 = b22.value;
+      if (h3) editedResourceData.ppt.slide3Header = h3.value;
+      if (b31) editedResourceData.ppt.slide3Bullet1 = b31.value;
+    } else if (currentEditResourceType === "sheet") {
+      var st = document.getElementById("editSheetTitle");
+      var q1t = document.getElementById("editSheetQ1Title");
+      var q1h = document.getElementById("editSheetQ1Help");
+      var q2t = document.getElementById("editSheetQ2Title");
+      var q2h = document.getElementById("editSheetQ2Help");
+
+      if (st) editedResourceData.sheet.title = st.value;
+      if (q1t) editedResourceData.sheet.q1Title = q1t.value;
+      if (q1h) editedResourceData.sheet.q1Help = q1h.value;
+      if (q2t) editedResourceData.sheet.q2Title = q2t.value;
+      if (q2h) editedResourceData.sheet.q2Help = q2h.value;
+    }
+
+    closeEditorModal();
+    alert("💾 [수정 내용 저장 완료]\n\n선생님이 수정한 리소스 내용이 정상 저장되었습니다.\n'📂 미리보기' 버튼을 클릭하시면 수정한 원본이 즉시 반영되어 나타납니다!");
   };
 
   window.closePreview = function () {
