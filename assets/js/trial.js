@@ -93,10 +93,84 @@
   var topicSelect = document.getElementById("topicSelect");
   var topicSelectWrapper = document.getElementById("topicSelectWrapper");
 
+  var aiTypeDefinitions = [
+    { value: "탐구/자료 분석", text: "🔍 탐구/자료 분석" },
+    { value: "창작/산출물 제작", text: "🎨 창작/산출물 제작" },
+    { value: "대화/토론", text: "💬 대화/토론" },
+    { value: "개별 피드백/교정", text: "✏️ 개별 피드백/교정" },
+    { value: "시뮬레이션/시각화", text: "📊 시뮬레이션/시각화" },
+    { value: "자기평가/성찰", text: "🪞 자기평가/성찰" }
+  ];
+
+  function refreshAiTypeOptions() {
+    var aiTypeSelect = document.getElementById("aiTypeSelect");
+    if (!subjectSelect || !aiTypeSelect) return;
+    var subject = subjectSelect.value || "";
+
+    var isKorEng = subject.indexOf("국어") !== -1 || subject.indexOf("영어") !== -1;
+    var isMathSci = subject.indexOf("수학") !== -1 || subject.indexOf("과학") !== -1 || subject.indexOf("실험") !== -1;
+    var isSocHist = subject.indexOf("사회") !== -1 || subject.indexOf("역사") !== -1 || subject.indexOf("한국사") !== -1;
+
+    var currentVal = aiTypeSelect.value;
+    aiTypeSelect.innerHTML = "";
+
+    var firstEnabledVal = null;
+    var isCurrentValDisabled = false;
+
+    aiTypeDefinitions.forEach(function (item) {
+      var option = document.createElement("option");
+      option.value = item.value;
+
+      var isDisabled = false;
+      var note = "";
+
+      if (isKorEng) {
+        if (item.value === "시뮬레이션/시각화") {
+          isDisabled = true;
+          note = " (해당 교과 미지원)";
+        }
+      } else if (isMathSci) {
+        if (item.value === "대화/토론") {
+          isDisabled = true;
+          note = " (해당 교과 미지원)";
+        }
+      }
+
+      option.textContent = item.text + note;
+      if (isDisabled) {
+        option.disabled = true;
+        if (currentVal === item.value) {
+          isCurrentValDisabled = true;
+        }
+      } else {
+        if (!firstEnabledVal) firstEnabledVal = item.value;
+      }
+
+      if (currentVal === item.value && !isDisabled) {
+        option.selected = true;
+      }
+
+      aiTypeSelect.appendChild(option);
+    });
+
+    if (isCurrentValDisabled || !aiTypeSelect.value) {
+      if (firstEnabledVal) {
+        aiTypeSelect.value = firstEnabledVal;
+        selectedAiType = firstEnabledVal;
+      }
+    } else {
+      selectedAiType = aiTypeSelect.value;
+    }
+  }
+
   if (subjectSelect) {
-    subjectSelect.addEventListener("change", refreshTopicOptions);
+    subjectSelect.addEventListener("change", function () {
+      refreshTopicOptions();
+      refreshAiTypeOptions();
+    });
   }
   refreshTopicOptions();
+  refreshAiTypeOptions();
 
   function getTopic() {
     if (topicSelect && topicSelect.value) {
