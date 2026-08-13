@@ -128,6 +128,7 @@
   var successModal = document.getElementById("successModal");
   var signupForm = document.getElementById("signupForm");
   var studentAiBtn = document.getElementById("studentAiAnalysisBtn");
+  var studentFloatingPanel = document.getElementById("studentFloatingPanel");
   var selectedResourceLabel = document.getElementById("selectedResourceLabel");
   var trialRoleBadge = document.getElementById("trialRoleBadge");
   var trialTitle = document.getElementById("trialTitle");
@@ -146,7 +147,8 @@
     if (studentView) studentView.style.display = "grid";
     if (studentBanner) studentBanner.style.display = "block";
     if (studentInfoBar) studentInfoBar.style.display = "flex";
-    if (studentAiBtn) studentAiBtn.style.display = "flex";
+    if (studentFloatingPanel) studentFloatingPanel.style.display = "flex";
+    else if (studentAiBtn) studentAiBtn.style.display = "flex";
 
     if (trialRoleBadge) {
       trialRoleBadge.textContent = "학생용 체험";
@@ -160,6 +162,8 @@
     if (studentView) studentView.style.display = "none";
     if (studentBanner) studentBanner.style.display = "none";
     if (studentInfoBar) studentInfoBar.style.display = "none";
+    if (studentFloatingPanel) studentFloatingPanel.style.display = "none";
+    if (studentAiBtn) studentAiBtn.style.display = "none";
 
     if (trialRoleBadge) {
       trialRoleBadge.textContent = "교사용 체험";
@@ -633,12 +637,109 @@
     });
   }
 
-  // 7. Interactive Panel Nav Tabs
-  var panelNavTabs = document.querySelectorAll(".panel-nav-tab");
-  panelNavTabs.forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      panelNavTabs.forEach(function (t) { t.classList.remove("active"); });
-      tab.classList.add("active");
-    });
-  });
+  // 8. Lock-in CBT Assessment Modal Handlers
+  var lockinModal = document.getElementById("lockinModal");
+  var lockinTimerInterval = null;
+  var lockinTimeRemaining = 45 * 60; // 45 minutes
+  var lockinAnswers = { 1: 3, 2: null, 3: null, 4: null, 5: null };
+
+  window.openLockinSampleModal = function() {
+    var subjectSelect = document.getElementById("studentSubjectSelect");
+    var chosenSubject = (subjectSelect && subjectSelect.value) ? subjectSelect.value : "공통국어2";
+    
+    var lockinSubTag = document.getElementById("lockinSubjectTag");
+    var lockinProfileSub = document.getElementById("lockinProfileSubject");
+    if (lockinSubTag) lockinSubTag.textContent = chosenSubject;
+    if (lockinProfileSub) lockinProfileSub.textContent = chosenSubject;
+
+    if (lockinModal) {
+      lockinModal.classList.add("open");
+    }
+    
+    // Start Timer
+    clearInterval(lockinTimerInterval);
+    lockinTimeRemaining = 45 * 60 - 2; // 44:58 start
+    updateLockinTimerDisplay();
+    lockinTimerInterval = setInterval(function() {
+      if (lockinTimeRemaining > 0) {
+        lockinTimeRemaining--;
+        updateLockinTimerDisplay();
+      }
+    }, 1000);
+  };
+
+  window.closeLockinSampleModal = function() {
+    if (lockinModal) {
+      lockinModal.classList.remove("open");
+    }
+    clearInterval(lockinTimerInterval);
+    var toast = document.getElementById("lockinViolationToast");
+    if (toast) toast.style.display = "none";
+  };
+
+  function updateLockinTimerDisplay() {
+    var timerValEl = document.getElementById("lockinTimerVal");
+    if (!timerValEl) return;
+    var mins = Math.floor(lockinTimeRemaining / 60);
+    var secs = lockinTimeRemaining % 60;
+    timerValEl.textContent = (mins < 10 ? "0" + mins : mins) + ":" + (secs < 10 ? "0" + secs : secs);
+  }
+
+  window.selectLockinAnswer = function(qNum, choice) {
+    lockinAnswers[qNum] = choice;
+    
+    // Check radio
+    if (qNum === 1) {
+      var radios = document.querySelectorAll('input[name="q1_choice"]');
+      radios.forEach(function(r) {
+        if (parseInt(r.value, 10) === choice) r.checked = true;
+      });
+    }
+
+    // Update OMR bubbles
+    for (var i = 1; i <= 5; i++) {
+      var bubble = document.getElementById("b" + qNum + "_" + i);
+      if (bubble) {
+        if (i === choice) {
+          bubble.classList.add("active");
+        } else {
+          bubble.classList.remove("active");
+        }
+      }
+    }
+
+    var row = document.getElementById("omrRow" + qNum);
+    if (row) row.classList.add("active");
+
+    var filledCount = 0;
+    for (var key in lockinAnswers) {
+      if (lockinAnswers[key] !== null) filledCount++;
+    }
+    var progressEl = document.getElementById("omrProgressText");
+    if (progressEl) {
+      progressEl.textContent = filledCount + " / 5 문항 완료";
+    }
+  };
+
+  window.submitLockinExam = function() {
+    var filledCount = 0;
+    for (var key in lockinAnswers) {
+      if (lockinAnswers[key] !== null) filledCount++;
+    }
+
+    if (confirm("🔒 [PINE Secure CBT] 답안을 최종 제출하시겠습니까?\n\n- 제출 완료 문항: " + filledCount + " / 5 문항\n- 제출 시 락인 보호 모드가 자동 종료되며 리포트로 연결됩니다.")) {
+      closeLockinSampleModal();
+      alert("🎉 [평가 제출 완료]\n\n" + filledCount + "개 문항 답안이 정상 제출되었습니다.\n락인 보안 보호 모드가 해제되고 실시간 성취도 리포트가 업데이트됩니다.");
+    }
+  };
+
+  window.simulateLockinViolation = function() {
+    var toast = document.getElementById("lockinViolationToast");
+    if (toast) {
+      toast.style.display = "flex";
+      setTimeout(function() {
+        if (toast) toast.style.display = "none";
+      }, 5000);
+    }
+  };
 })();
